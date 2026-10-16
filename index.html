@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design &amp; Deploy — Web Design &amp; Development Studio</title>
+<meta name="description" content="Design & Deploy is a digital design and development studio creating bold websites, brands, UI/UX and digital experiences for ambitious businesses.">
+<meta name="theme-color" content="#000000">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Design &amp; Deploy">
+<meta property="og:title" content="Design &amp; Deploy — We Design Bold. We Deploy Fast.">
+<meta property="og:description" content="A digital design & development studio building brands, websites and digital experiences for ambitious businesses.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Design &amp; Deploy — Digital Design &amp; Development Studio">
+<meta name="twitter:description" content="Branding, UI/UX, web development and digital experiences — from concept to launch.">
+
+<link rel="icon" href="assets/logo.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Newsreader:opsz,wght@6..72,300..700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://designanddeploy.in/#organization",
+      "name": "Design & Deploy",
+      "url": "https://designanddeploy.in/",
+      "email": "hello@designanddeploy.in",
+      "description": "A digital design and development studio based in Noida, India, helping businesses across Delhi-NCR, India and beyond build stronger brands and better digital experiences.",
+      "areaServed": "India"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://designanddeploy.in/#website",
+      "url": "https://designanddeploy.in/",
+      "name": "Design & Deploy",
+      "publisher": { "@id": "https://designanddeploy.in/#organization" }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What does Design & Deploy do?", "acceptedAnswer": { "@type": "Answer", "text": "Design & Deploy is a digital design and development studio specializing in website design, web development, UI/UX design, branding, graphic design and e-commerce development." } },
+        { "@type": "Question", "name": "Where is Design & Deploy based?", "acceptedAnswer": { "@type": "Answer", "text": "Design & Deploy is a digital studio based in India, working with businesses and clients across India and beyond." } },
+        { "@type": "Question", "name": "Do you design and develop websites?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We handle the complete process from website strategy and UI/UX design through development, testing and deployment." } },
+        { "@type": "Question", "name": "Do you work with WordPress?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We work with WordPress and WooCommerce as well as custom front-end development and headless WordPress solutions, depending on the project's requirements." } },
+        { "@type": "Question", "name": "Can you redesign an existing website?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can audit an existing website and redesign its visual system, user experience, structure and technical implementation." } },
+        { "@type": "Question", "name": "Do you provide branding services?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Our branding services include logo design, visual identity, brand systems, guidelines, marketing creatives and digital brand assets." } },
+        { "@type": "Question", "name": "Do you work with startups?", "acceptedAnswer": { "@type": "Answer", "text": "Absolutely. We work with startups and growing businesses that need a strong brand and digital presence without unnecessary complexity." } },
+        { "@type": "Question", "name": "How much does a website cost?", "acceptedAnswer": { "@type": "Answer", "text": "Every project is different. Pricing depends on the scope, number of pages, functionality, integrations, design requirements and development complexity. Contact us with your requirements and we'll recommend the right approach." } },
+        { "@type": "Question", "name": "How long does it take to build a website?", "acceptedAnswer": { "@type": "Answer", "text": "Project timelines depend on complexity and scope. A focused business website can take considerably less time than a custom platform or e-commerce project. We'll provide a timeline after understanding your requirements." } },
+        { "@type": "Question", "name": "Can you maintain my website after launch?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. We can provide ongoing website maintenance, updates, improvements and technical support depending on your requirements." } }
+      ]
+    }
+  ]
+}
+</script>
+
+<style>
+/* ==========================================================================
+   Design & Deploy
+   Palette: Yellow #FFD600, Red #CF0000, Ivory #F9F5F0, Black #000000
+   No blue, cyan, or purple anywhere.
+   ========================================================================== */
+
+:root {
+  --y: #FFD600;
+  --r: #CF0000;
+  --iv: #F9F5F0;
+  --k: #000000;
+
+  --gutter: clamp(20px, 4vw, 56px);
+  --head-h: 100px;
+  --pad-y: clamp(72px, 11vw, 152px);
+  --edge: clamp(12px, 2vw, 28px);
+
+  --display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --text: "Newsreader", Georgia, "Times New Roman", serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--head-h);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: var(--k);
+  color: var(--iv);
+  font-family: var(--text);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  accent-color: var(--r);
+}
+
+img, svg, canvas { display: block; max-width: 100%; }
+a { color: inherit; }
+ul, ol { padding: 0; list-style: none; }
+::selection { background: var(--y); color: var(--k); }
+
+h1, h2, h3 {
+  font-family: var(--display);
+  font-weight: 800;
+  font-stretch: 82%;
+  letter-spacing: -0.025em;
+  line-height: 1;
+  text-wrap: balance;
+}
+
+/* ---- Tones: each carries its own colour roles ---- */
+.tone-dark   { --bg: var(--k);  --fg: var(--iv); --rule: rgba(249,245,240,.24); --focus: var(--y); background: var(--bg); color: var(--fg); }
+.tone-light  { --bg: var(--iv); --fg: var(--k);  --rule: rgba(0,0,0,.22);       --focus: var(--r); background: var(--bg); color: var(--fg); }
+.tone-yellow { --bg: var(--y);  --fg: var(--k);  --rule: rgba(0,0,0,.3);        --focus: var(--k); background: var(--bg); color: var(--fg); }
+.tone-red    { --bg: var(--r);  --fg: var(--iv); --rule: rgba(249,245,240,.35); --focus: var(--y); background: var(--bg); color: var(--fg); }
+
+:focus-visible { outline: 3px solid var(--focus, var(--y)); outline-offset: 3px; }
+
+.band { position: relative; padding: var(--pad-y) var(--gutter); }
+.wrap { max-width: 1280px; margin-inline: auto; }
+
+.skip {
+  position: absolute; left: 12px; top: -80px; z-index: 100;
+  background: var(--y); color: var(--k); padding: 12px 18px;
+  font: 700 1rem var(--display); text-decoration: none;
+}
+.skip:focus { top: 12px; }
+
+/* ---- Type helpers ---- */
+.t-xl { font-size: clamp(2.25rem, 5.4vw, 4.9rem); }
+.t-lg { font-size: clamp(2rem, 4.2vw, 3.6rem); }
+.t-l  { font-size: clamp(1.6rem, 2.6vw, 2.2rem); }
+.t-m  { font-size: clamp(1.25rem, 1.8vw, 1.5rem); font-family: var(--display); font-weight: 700; font-stretch: 88%; letter-spacing: -.01em; line-height: 1.2; }
+.lead { font-size: clamp(1.15rem, 1.6vw, 1.375rem); line-height: 1.55; max-width: 56ch; }
+.prose { max-width: 62ch; }
+.prose p + p { margin-top: 1em; }
+.ui { font-family: var(--display); font-stretch: 90%; }
+
+/* ---- Buttons ---- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 54px; padding: 0 30px;
+  border: 2px solid transparent; border-radius: 999px;
+  font: 700 1rem/1 var(--display); font-stretch: 90%;
+  text-decoration: none; cursor: pointer; white-space: nowrap;
+  transition: transform .2s ease, background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn--yellow { background: var(--y); color: var(--k); }
+.btn--yellow:hover { background: var(--k); color: var(--y); border-color: var(--y); }
+.btn--red { background: var(--r); color: var(--iv); }
+.btn--red:hover { background: var(--iv); color: var(--r); border-color: var(--r); }
+.btn--ink { background: var(--k); color: var(--iv); }
+.btn--ink:hover { background: var(--iv); color: var(--k); border-color: var(--k); }
+.btn--ghost { border-color: currentColor; color: inherit; background: transparent; }
+.btn--ghost:hover { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+/* ==========================================================================
+   Capsule header
+   ========================================================================== */
+.site-header {
+  position: fixed; top: 14px; left: 0; right: 0; z-index: 50;
+  padding-inline: var(--gutter);
+  pointer-events: none;
+  --focus: var(--r);
+}
+.capsule, .m-panel {
+  pointer-events: auto;
+  max-width: 1180px; margin-inline: auto;
+  background: var(--iv); color: var(--k);
+  border: 2px solid var(--k);
+}
+.capsule {
+  height: 64px; border-radius: 999px;
+  display: flex; align-items: center; gap: 16px;
+  padding: 0 9px 0 24px;
+}
+.logo { display: inline-flex; align-items: center; margin-right: auto; text-decoration: none; }
+.logo img { height: 34px; width: auto; }
+
+.nav__list { display: flex; align-items: center; gap: 2px; }
+.nav__list > li { position: relative; }
+.nav__link, .nav__btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 17px; border: 0; border-radius: 999px; background: none; color: var(--k);
+  font: 600 1rem/1 var(--display); font-stretch: 92%;
+  text-decoration: none; cursor: pointer; transition: background-color .2s;
+}
+.nav__link:hover, .nav__btn:hover,
+.nav__link[aria-current="true"], .has-menu.is-open .nav__btn { background: var(--y); }
+.nav__btn::after {
+  content: ""; width: 7px; height: 7px;
+  border-right: 2px solid currentColor; border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg); transition: transform .2s;
+}
+.has-menu.is-open .nav__btn::after { transform: translateY(1px) rotate(225deg); }
+
+.menu {
+  position: absolute; top: calc(100% + 22px); left: -8px; min-width: 330px;
+  background: var(--iv); border: 2px solid var(--k); border-radius: 24px;
+  padding: 8px; display: none;
+}
+.menu::before { content: ""; position: absolute; left: 0; right: 0; top: -24px; height: 24px; }
+.has-menu:hover .menu, .has-menu.is-open .menu { display: block; }
+.menu a {
+  display: block; padding: 12px 16px; border-radius: 16px;
+  font: 600 1rem var(--display); font-stretch: 92%; text-decoration: none;
+}
+.menu a:hover { background: var(--y); }
+
+.capsule .btn { min-height: 46px; padding: 0 24px; }
+
+.burger {
+  display: none; position: relative; flex: none;
+  width: 46px; height: 46px; border: 0; border-radius: 50%;
+  background: var(--y); color: var(--k); cursor: pointer;
+}
+.burger span, .burger::before, .burger::after {
+  content: ""; position: absolute; left: 13px; right: 13px; height: 2px; background: currentColor;
+  transition: transform .25s, opacity .25s, top .25s;
+}
+.burger::before { top: 16px; }
+.burger span { top: 22px; }
+.burger::after { top: 28px; }
+.burger[aria-expanded="true"]::before { top: 22px; transform: rotate(45deg); }
+.burger[aria-expanded="true"]::after { top: 22px; transform: rotate(-45deg); }
+.burger[aria-expanded="true"] span { opacity: 0; }
+
+/* Mobile dropdown: drops from the capsule */
+.m-panel {
+  margin-top: 10px; border-radius: 28px; padding: 10px 12px 16px;
+  max-height: calc(100svh - 14px - 64px - 10px - 20px); overflow-y: auto;
+  opacity: 0; visibility: hidden; transform: translateY(-10px) scale(.98); transform-origin: top center;
+  transition: opacity .22s ease, transform .22s ease, visibility .22s;
+}
+.m-panel.is-open { opacity: 1; visibility: visible; transform: none; }
+.m-panel a:not(.btn) {
+  display: block; padding: 14px 14px; border-radius: 16px;
+  font: 700 1.25rem/1.1 var(--display); font-stretch: 85%; text-decoration: none;
+}
+.m-panel a:not(.btn):hover { background: var(--y); }
+.m-panel .sub { display: grid; padding: 0 0 8px 12px; }
+.m-panel .sub a:not(.btn) { font-size: 1rem; font-weight: 600; font-stretch: 92%; padding: 10px 14px; }
+.m-panel .btn { display: flex; margin: 12px 4px 0; }
+
+@media (max-width: 960px) {
+  .nav, .capsule .btn { display: none; }
+  .burger { display: block; }
+}
+@media (min-width: 961px) { .m-panel { display: none; } }
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+.hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 100svh;
+  display: flex; align-items: flex-end;
+  padding: calc(var(--head-h) + 40px) var(--gutter) clamp(44px, 7vw, 96px);
+}
+.hero__canvas {
+  position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1;
+  animation: fade 1.6s .25s ease both;
+}
+.hero__canvas[hidden] { display: none; }
+.hero__in { position: relative; width: 100%; max-width: 1440px; margin-inline: auto; }
+
+.hero h1 { font-size: clamp(2.9rem, 9.4vw, 9.5rem); line-height: .94; letter-spacing: -.035em; font-stretch: 78%; }
+.hero h1 .line { display: block; overflow: hidden; padding-bottom: .12em; margin-bottom: -.12em; }
+.hero h1 .line > span {
+  display: block; transform: translateY(112%);
+  animation: rise 1s cubic-bezier(.2,.8,.2,1) forwards;
+  animation-delay: calc(.15s + var(--i) * .11s);
+}
+.hero__sub { margin-top: clamp(24px, 3vw, 40px); max-width: 48ch; font-size: clamp(1.15rem, 1.7vw, 1.4rem); line-height: 1.5; animation: fade .9s .75s ease both; }
+.hero__cta { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 14px; animation: fade .9s .9s ease both; }
+.hero__note {
+  position: absolute; right: 0; bottom: 6px; font: 500 .95rem var(--display); font-stretch: 90%;
+  color: rgba(249,245,240,.7); text-align: right; animation: fade 1s 1.4s ease both;
+}
+@media (max-width: 800px) { .hero__note { display: none; } }
+
+@keyframes rise { to { transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+/* ==========================================================================
+   Shared layout
+   ========================================================================== */
+.split { display: grid; grid-template-columns: repeat(12, 1fr); gap: 36px 32px; }
+.split__a { grid-column: 1 / 6; }
+.split__b { grid-column: 7 / 13; }
+@media (max-width: 900px) { .split__a, .split__b { grid-column: 1 / -1; } }
+
+.section-head { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px 32px; align-items: end; margin-bottom: clamp(40px, 6vw, 72px); }
+.section-head > :first-child { grid-column: 1 / 8; }
+.section-head > :last-child { grid-column: 9 / 13; }
+@media (max-width: 900px) { .section-head > * { grid-column: 1 / -1 !important; } }
+
+/* Intro */
+.points { margin-top: 36px; }
+.points li { border-top: 1px solid var(--rule); padding: 20px 0; display: grid; gap: 4px; }
+.points li:last-child { border-bottom: 1px solid var(--rule); }
+.points strong { font: 700 1.25rem/1.2 var(--display); font-stretch: 88%; }
+.intro__close { margin-top: 28px; font: 800 clamp(1.4rem, 2.4vw, 1.9rem)/1.1 var(--display); font-stretch: 85%; letter-spacing: -.02em; }
+.intro .btn { margin-top: 28px; }
+
+/* ==========================================================================
+   Services accordion
+   ========================================================================== */
+.svc {
+  border-top: 1px solid var(--rule);
+  padding-inline: var(--edge); margin-inline: calc(-1 * var(--edge));
+  transition: background-color .3s ease, color .3s ease;
+}
+.svc:last-child { border-bottom: 1px solid var(--rule); }
+.svc.is-open { background: var(--y); color: var(--k); }
+.svc__btn {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: clamp(20px, 3vw, 32px) 0; border: 0; background: none; color: inherit; cursor: pointer; text-align: left;
+  font: 800 clamp(1.6rem, 3.8vw, 3.2rem)/1 var(--display); font-stretch: 80%; letter-spacing: -.025em;
+  transition: color .2s;
+}
+.svc:not(.is-open) .svc__btn:hover { color: var(--y); }
+.svc__icon { position: relative; flex: none; width: 30px; height: 30px; }
+.svc__icon::before, .svc__icon::after {
+  content: ""; position: absolute; background: currentColor; left: 0; right: 0; top: 14px; height: 3px;
+  transition: transform .3s ease;
+}
+.svc__icon::after { transform: rotate(90deg); }
+.svc.is-open .svc__icon::after { transform: rotate(0); }
+
+.svc__panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s ease; }
+.svc.is-open .svc__panel { grid-template-rows: 1fr; }
+.svc__clip { overflow: hidden; min-height: 0; }
+.svc__body {
+  padding: 4px 0 clamp(28px, 4vw, 44px);
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px 32px; align-items: start;
+}
+.svc__text { grid-column: 1 / 7; max-width: 50ch; display: grid; gap: 14px; }
+.svc__lead { font: 700 clamp(1.25rem, 2vw, 1.6rem)/1.2 var(--display); font-stretch: 88%; letter-spacing: -.01em; }
+.svc__text p:not(.svc__lead) { font-size: 1.15rem; }
+.svc__list { grid-column: 7 / 13; }
+.svc__ltitle { font: 700 1rem var(--display); font-stretch: 90%; margin-bottom: 12px; }
+.svc__list ul { columns: 2; column-gap: 28px; font: 600 1.02rem/1.3 var(--display); font-stretch: 92%; }
+.svc__list li { break-inside: avoid; margin-bottom: 10px; padding-left: 20px; position: relative; }
+.svc__list li::before { content: ""; position: absolute; left: 0; top: .42em; width: 9px; height: 9px; background: var(--r); }
+.svc__body .btn { grid-column: 1 / -1; justify-self: start; }
+@media (max-width: 900px) { .svc__text, .svc__list { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .svc__list ul { columns: 1; } }
+
+.more { margin-top: clamp(40px, 6vw, 72px); display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+.more p { max-width: 52ch; }
+
+/* ==========================================================================
+   Work
+   ========================================================================== */
+.work { display: grid; grid-template-columns: repeat(12, 1fr); gap: 56px 28px; }
+.work__item { grid-column: span var(--span, 6); display: grid; grid-template-rows: auto 1fr auto; gap: 16px; align-content: stretch; }
+.work__art { overflow: hidden; aspect-ratio: 16 / 10; background: var(--k); outline: 2px solid var(--k); outline-offset: -2px; }
+.work__art svg { width: 100%; height: 100%; }
+.work__kind { font: 600 1rem var(--display); font-stretch: 90%; color: var(--r); }
+.work__item h3 { font-size: clamp(1.7rem, 2.8vw, 2.4rem); margin-top: 2px; }
+.work__item p.prose { margin-top: 8px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.tags li { border: 1.5px solid var(--fg); border-radius: 999px; padding: 4px 13px; font: 600 .85rem/1.3 var(--display); font-stretch: 90%; }
+.work__open {
+  grid-column: 1 / -1; background: var(--y); color: var(--k);
+  padding: clamp(28px, 5vw, 60px);
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px;
+}
+.work__open h3 { font-size: clamp(2rem, 5vw, 4rem); max-width: 14ch; }
+.work__open p { margin-top: 10px; max-width: 40ch; }
+@media (max-width: 800px) { .work__item { grid-column: 1 / -1; } }
+
+/* ==========================================================================
+   Why / philosophy rows
+   ========================================================================== */
+.rows { border-top: 1px solid var(--rule); }
+.rows__item {
+  display: grid; grid-template-columns: repeat(12, 1fr); gap: 10px 32px;
+  padding: 28px 0; border-bottom: 1px solid var(--rule); align-items: start;
+}
+.rows__item h3 { grid-column: 1 / 6; font-size: clamp(1.4rem, 2.4vw, 2rem); }
+.rows__item p { grid-column: 7 / 13; max-width: 56ch; }
+@media (max-width: 800px) { .rows__item h3, .rows__item p { grid-column: 1 / -1; } }
+
+/* ==========================================================================
+   Process
+   ========================================================================== */
+.process { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px 32px; counter-reset: step; margin-top: clamp(40px, 6vw, 72px); }
+.process li { counter-increment: step; border-top: 4px solid var(--fg); padding-top: 18px; display: grid; gap: 10px; align-content: start; }
+.process li::before {
+  content: counter(step, decimal-leading-zero);
+  font: 800 clamp(2.6rem, 5vw, 4rem)/1 var(--display); font-stretch: 75%; letter-spacing: -.03em; color: var(--r);
+}
+.process h3 { font-size: clamp(1.5rem, 2.4vw, 2rem); }
+@media (max-width: 900px) { .process { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .process { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   Audience (yellow band)
+   ========================================================================== */
+.audience { display: grid; grid-template-columns: repeat(4, 1fr); gap: 36px 32px; margin-top: clamp(40px, 6vw, 64px); }
+.audience li { border-top: 3px solid var(--k); padding-top: 18px; display: grid; gap: 8px; align-content: start; }
+.audience h3 { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
+@media (max-width: 900px) { .audience { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 520px) { .audience { grid-template-columns: 1fr; } }
+
+/* ==========================================================================
+   About
+   ========================================================================== */
+.people { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; margin-top: clamp(40px, 6vw, 72px); }
+.person { display: grid; gap: 16px; align-content: start; }
+.person__mark {
+  aspect-ratio: 4 / 3; display: grid; place-items: center;
+  font: 800 clamp(4.5rem, 12vw, 10rem)/1 var(--display); font-stretch: 75%; letter-spacing: -.04em;
+}
+.person__mark--y { background: var(--y); color: var(--k); }
+.person__mark--r { background: var(--r); color: var(--iv); }
+.person h3 { font-size: clamp(1.7rem, 3vw, 2.4rem); }
+.person__role { font: 600 1.05rem var(--display); font-stretch: 90%; color: var(--y); margin-top: -8px; }
+@media (max-width: 700px) { .people { grid-template-columns: 1fr; } }
+
+.about-block { margin-top: clamp(56px, 8vw, 104px); }
+.about-block > h3 { margin-bottom: 24px; }
+.small-by-design { margin-top: clamp(56px, 8vw, 104px); display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 28px; }
+.small-by-design > div { max-width: 60ch; display: grid; gap: 16px; }
+
+/* ==========================================================================
+   FAQ
+   ========================================================================== */
+.faq details { border-top: 1px solid var(--rule); }
+.faq details:last-child { border-bottom: 1px solid var(--rule); }
+.faq summary {
+  list-style: none; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  padding: 22px 0; font: 700 clamp(1.15rem, 1.8vw, 1.45rem)/1.2 var(--display); font-stretch: 88%; letter-spacing: -.01em;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary:hover { color: var(--r); }
+.faq summary::after {
+  content: ""; flex: none; width: 22px; height: 22px;
+  background:
+    linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat,
+    linear-gradient(currentColor, currentColor) center / 3px 100% no-repeat;
+}
+.faq details[open] summary::after { background: linear-gradient(currentColor, currentColor) center / 100% 3px no-repeat; }
+.faq details p { padding: 0 0 24px; max-width: 58ch; }
+
+/* ==========================================================================
+   CTA band with shader
+   ========================================================================== */
+.cta { position: relative; isolation: isolate; overflow: hidden; padding: clamp(96px, 14vw, 200px) var(--gutter); }
+.cta__canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
+.cta__canvas[hidden] { display: none; }
+.cta h2 { font-size: clamp(2.7rem, 7.6vw, 7rem); line-height: .94; letter-spacing: -.035em; font-stretch: 78%; max-width: 14ch; }
+.cta p { margin-top: 28px; max-width: 46ch; font-size: clamp(1.15rem, 1.6vw, 1.35rem); }
+.cta__row { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
+.cta__mail { font: 700 1.15rem var(--display); font-stretch: 90%; text-decoration-thickness: 2px; text-underline-offset: 6px; }
+
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+.contact__ask { margin-top: 32px; display: grid; gap: 14px; }
+.contact__ask h3 { font-size: 1.3rem; letter-spacing: -.01em; }
+.contact__ask li { display: grid; gap: 0; }
+.contact__ask strong { font: 700 1.05rem var(--display); font-stretch: 90%; }
+.details { margin-top: 36px; display: grid; gap: 18px; }
+.details dt { font: 600 .95rem var(--display); font-stretch: 90%; color: var(--r); }
+.details dd { font-size: 1.2rem; }
+.details a { text-decoration-thickness: 2px; text-underline-offset: 5px; }
+
+.form { display: grid; gap: 28px; }
+.form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+@media (max-width: 600px) { .form__row { grid-template-columns: 1fr; } }
+.field { display: grid; gap: 6px; }
+.field label { font: 600 .95rem var(--display); font-stretch: 90%; }
+.field input, .field select, .field textarea {
+  width: 100%; font: inherit; font-size: 1.15rem; color: var(--fg); background: transparent;
+  border: 0; border-bottom: 2px solid var(--fg); border-radius: 0; padding: 12px 0;
+  transition: border-color .2s, box-shadow .2s;
+}
+.field textarea { min-height: 130px; resize: vertical; }
+.field input::placeholder, .field textarea::placeholder { color: color-mix(in srgb, var(--fg) 55%, transparent); }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; border-bottom-color: var(--r); box-shadow: 0 2px 0 0 var(--r); }
+.field select {
+  appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 32px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 4px center;
+}
+.field input:-webkit-autofill, .field textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px var(--bg) inset; -webkit-text-fill-color: var(--fg);
+}
+.form__foot { display: flex; flex-wrap: wrap; align-items: center; gap: 20px; }
+.form__status { font: 600 1rem var(--display); font-stretch: 90%; min-height: 1.5em; }
+.form__note { margin-top: 36px; border-top: 1px solid var(--rule); padding-top: 24px; max-width: 52ch; }
+.form__note strong { display: block; font: 800 1.5rem/1.1 var(--display); font-stretch: 85%; letter-spacing: -.02em; margin-bottom: 6px; }
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+.footer { padding: clamp(72px, 10vw, 128px) var(--gutter) 32px; }
+.footer__cta { display: grid; gap: 22px; justify-items: start; padding-bottom: clamp(56px, 8vw, 96px); border-bottom: 1px solid var(--rule); }
+.footer__cta h2 { max-width: 16ch; }
+.footer__grid { display: grid; grid-template-columns: 2fr 1fr 1.4fr 1.4fr; gap: 40px; padding-top: clamp(40px, 6vw, 72px); }
+.footer h3 { font: 700 1.05rem var(--display); font-stretch: 90%; letter-spacing: 0; color: var(--y); margin-bottom: 16px; }
+.footer li + li { margin-top: 8px; }
+.footer a { text-decoration: none; }
+.footer a:hover { color: var(--y); text-decoration: underline; text-underline-offset: 5px; }
+.footer .logo-chip { display: inline-flex; background: var(--iv); padding: 10px 20px; border-radius: 999px; }
+.footer .logo-chip:hover { text-decoration: none; }
+.footer__blurb { max-width: 38ch; margin-top: 18px; color: rgba(249,245,240,.82); }
+.footer__base { margin-top: clamp(40px, 6vw, 72px); padding-top: 24px; border-top: 1px solid var(--rule); font-size: .95rem; color: rgba(249,245,240,.75); }
+@media (max-width: 900px) { .footer__grid { grid-template-columns: 1fr 1fr; } .footer__grid > :first-child { grid-column: 1 / -1; } }
+
+
+/* ==========================================================================
+   Join section: headline with logo + rotating client logos
+   ========================================================================== */
+.sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+
+.join { display: grid; place-items: center; text-align: center; min-height: min(100svh, 780px); padding: clamp(88px, 12vw, 168px) var(--gutter); }
+.join__in { width: 100%; max-width: 1100px; }
+.join__kicker { font: 700 clamp(1.4rem, 3.4vw, 2.7rem)/1.1 var(--display); font-stretch: 96%; letter-spacing: -.02em; }
+.join__title {
+  margin-top: clamp(2px, .6vw, 10px);
+  font-size: clamp(2.7rem, 9.4vw, 8rem); line-height: 1.02; font-stretch: 98%; letter-spacing: -.04em;
+  display: flex; flex-wrap: wrap; align-items: center; justify-content: center; column-gap: .26em;
+}
+.join__logo { height: .74em; width: auto; }
+
+.rot { margin: clamp(44px, 6vw, 80px) auto 0; max-width: 880px; display: grid; grid-template-columns: repeat(3, 1fr); }
+.slot { position: relative; height: clamp(64px, 9vw, 112px); }
+.slot img {
+  position: absolute; inset: 0; margin: auto; width: auto; height: auto; max-width: 78%; max-height: 74%;
+  opacity: 0; visibility: hidden; filter: blur(14px);
+  transition: opacity .5s ease, filter .5s ease, visibility 0s linear .5s;
+}
+.slot img.is-active {
+  opacity: 1; visibility: visible; filter: blur(0);
+  transition: opacity .6s ease .2s, filter .6s ease .2s, visibility 0s;
+}
+@media (max-width: 560px) { .slot img { max-width: 94%; } }
+
+
+/* ==========================================================================
+   Work covers, View work buttons, team photos
+   ========================================================================== */
+.work__art img { width: 100%; height: 100%; object-fit: cover; }
+.work__cta { justify-self: start; margin-top: 8px; }
+.btn.is-pending { opacity: .4; cursor: not-allowed; pointer-events: none; }
+.person__photo { aspect-ratio: 4 / 3; overflow: hidden; background: var(--k); }
+.person__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ==========================================================================
+   Start-a-project pop-up
+   ========================================================================== */
+body:has(dialog[open]) { overflow: hidden; }
+
+.pop {
+  padding: 0; border: 0; background: transparent; color: var(--k);
+  width: min(980px, calc(100% - 32px)); max-width: none; max-height: none; overflow: visible;
+  --focus: var(--r);
+}
+.pop::backdrop { background: rgba(0,0,0,.74); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.pop[open]::backdrop { animation: fade .3s ease both; }
+
+.pop__card {
+  display: grid; grid-template-columns: 5fr 6fr;
+  max-height: calc(100dvh - 32px); overflow: auto; overscroll-behavior: contain;
+  background: var(--iv); border: 2px solid var(--k); border-radius: 28px; outline: none;
+}
+.pop[open] .pop__card { animation: pop-in .34s cubic-bezier(.2,.8,.2,1) both; }
+.pop.is-closing .pop__card { animation: pop-out .2s ease both; }
+.pop.is-closing::backdrop { animation: fade-out .2s ease both; }
+@keyframes pop-in  { from { opacity: 0; transform: translateY(20px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes pop-out { to { opacity: 0; transform: translateY(12px) scale(.98); } }
+@keyframes fade-out { to { opacity: 0; } }
+
+.pop__close {
+  position: absolute; top: 14px; right: 14px; z-index: 3;
+  width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--k);
+  background: var(--y); color: var(--k); cursor: pointer; display: grid; place-items: center;
+  transition: transform .2s ease, background-color .2s ease;
+}
+.pop__close:hover { background: var(--iv); transform: rotate(90deg); }
+.pop__close svg { width: 18px; height: 18px; }
+
+.pop__side {
+  position: relative; overflow: hidden; background: var(--k); color: var(--iv);
+  padding: clamp(28px, 4vw, 44px); display: flex; flex-direction: column; justify-content: space-between; gap: 32px;
+}
+.pop__side::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .5;
+  background-image: radial-gradient(circle, var(--y) 1.6px, transparent 2px); background-size: 18px 18px;
+  -webkit-mask-image: linear-gradient(200deg, #000 0%, transparent 55%); mask-image: linear-gradient(200deg, #000 0%, transparent 55%);
+}
+.pop__side > * { position: relative; }
+.pop__logo { height: 30px; width: auto; align-self: flex-start; }
+.pop__pitch h2 { font-size: clamp(2rem, 3.6vw, 3.2rem); line-height: .98; letter-spacing: -.035em; font-stretch: 80%; }
+.pop__pitch p { margin-top: 14px; max-width: 30ch; color: rgba(249,245,240,.88); }
+.pop__points li { position: relative; padding: 10px 0 10px 24px; border-top: 1px solid rgba(249,245,240,.24); font: 600 1rem var(--display); font-stretch: 92%; }
+.pop__points li::before { content: ""; position: absolute; left: 0; top: 1.1em; width: 9px; height: 9px; background: var(--y); }
+
+.pop__main { padding: clamp(28px, 4vw, 44px); display: grid; gap: 22px; align-content: start; }
+.pop__head { padding-right: 54px; }
+.pop__head h3 { font-size: clamp(1.7rem, 2.6vw, 2.2rem); }
+.pop__head p { margin-top: 8px; }
+.pop .form { gap: 22px; }
+.pop .field textarea { min-height: 96px; }
+.pop__alt { font: 600 1rem var(--display); font-stretch: 92%; }
+.pop__alt a { text-decoration-color: var(--r); text-decoration-thickness: 2px; text-underline-offset: 5px; }
+
+@media (max-width: 760px) {
+  .pop { width: calc(100% - 24px); }
+  .pop__card { grid-template-columns: 1fr; max-height: calc(100dvh - 24px); border-radius: 22px; }
+  .pop__side { padding: 24px 24px 26px; gap: 18px; }
+  .pop__logo { height: 26px; }
+  .pop__pitch h2 { font-size: 1.9rem; }
+  .pop__points { display: none; }
+  .pop__main { padding: 24px; }
+  .pop__close { top: 12px; right: 12px; }
+}
+
+/* ==========================================================================
+   Floating WhatsApp button
+   (set --wa-bg to #25D366 for the classic green)
+   ========================================================================== */
+:root { --wa-bg: var(--y); --wa-fg: var(--k); }
+.wa {
+  position: fixed; z-index: 40;
+  right: max(18px, env(safe-area-inset-right)); bottom: max(18px, env(safe-area-inset-bottom));
+  width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--wa-bg); color: var(--wa-fg); border: 2px solid var(--k); box-shadow: 0 0 0 2px var(--iv);
+  transition: transform .2s ease; --focus: var(--r);
+}
+.wa:hover { transform: scale(1.08); }
+.wa svg { width: 30px; height: 30px; }
+@media (max-width: 560px) { .wa { width: 54px; height: 54px; right: 14px; bottom: 14px; } }
+
+
+/* ==========================================================================
+   Our Work: equal cards, browser-window covers, subtle hover
+   ========================================================================== */
+.work { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 1fr; gap: clamp(28px, 3.2vw, 44px); }
+.work__item { grid-column: auto; }
+.work__open { margin-top: clamp(28px, 3.2vw, 44px); }
+@media (max-width: 1000px) { .work { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 640px)  { .work { grid-template-columns: 1fr; } }
+
+.browser {
+  display: flex; flex-direction: column; min-width: 0;
+  border: 2px solid var(--k); border-radius: 14px; overflow: hidden; background: var(--iv);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s cubic-bezier(.2,.8,.2,1);
+}
+.browser__bar { display: flex; align-items: center; gap: 12px; padding: 10px 14px; background: var(--iv); border-bottom: 2px solid var(--k); }
+.browser__dots { display: flex; gap: 6px; flex: none; }
+.browser__dots i { width: 10px; height: 10px; border-radius: 50%; background: var(--k); }
+.browser__dots i:nth-child(1) { background: var(--r); }
+.browser__dots i:nth-child(2) { background: var(--y); }
+.browser__url {
+  flex: 1; min-width: 0; height: 24px; padding: 0 12px; display: flex; align-items: center;
+  border: 1.5px solid var(--k); border-radius: 999px; background: var(--iv);
+  font: 600 .78rem/1 var(--display); font-stretch: 90%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  transition: background-color .3s ease;
+}
+.browser__screen { aspect-ratio: 16 / 10; overflow: hidden; background: var(--k); }
+.browser__screen img { width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .7s cubic-bezier(.2,.8,.2,1); }
+@media (hover: hover) {
+  .work__item:hover .browser { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--k); }
+  .work__item:hover .browser__screen img { transform: scale(1.04); }
+  .work__item:hover .browser__url { background: var(--y); }
+}
+
+/* services accordion: collapse the other items instantly when jumping to one from the menu */
+.svc.is-instant, .svc.is-instant .svc__panel { transition: none; }
+.svc { scroll-margin-top: 8px; }
+.has-menu.is-suppressed .menu { display: none !important; }
+
+/* ==========================================================================
+   Reduced motion
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition-duration: .01ms !important; }
+  .hero__canvas, .hero__sub, .hero__cta, .hero__note { animation: none; }
+  .hero h1 .line > span { animation: none; transform: none; }
+  .slot { display: contents; }
+  .rot { row-gap: 28px; }
+  .slot img { position: static; opacity: 1; visibility: visible; filter: none; margin: auto; max-height: 64px; max-width: 78%; }
+  .pop[open] .pop__card, .pop[open]::backdrop, .pop.is-closing .pop__card, .pop.is-closing::backdrop { animation: none; }
+  .pop__close:hover, .wa:hover { transform: none; }
+}
+</style>
+</head>
+
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ======================= CAPSULE HEADER ======================= -->
+<header class="site-header" id="site-header">
+  <div class="capsule">
+    <a class="logo" href="#top" aria-label="Design &amp; Deploy, home">
+      <!-- Replace logo.svg with your logo image (PNG, SVG or WebP) -->
+      <img src="assets/logo.png" alt="Design &amp; Deploy" width="190" height="36">
+    </a>
+
+    <nav class="nav" aria-label="Primary">
+      <ul class="nav__list">
+        <li><a class="nav__link" href="#top">Home</a></li>
+        <li class="has-menu" id="services-menu">
+          <button class="nav__btn" type="button" aria-expanded="false" aria-controls="services-list">Services</button>
+          <div class="menu" id="services-list">
+            <a href="#svc-web" data-service="web">Website Design &amp; Development</a>
+            <a href="#svc-uiux" data-service="uiux">UI/UX Design</a>
+            <a href="#svc-brand" data-service="brand">Branding &amp; Graphic Design</a>
+            <a href="#svc-store" data-service="store">E-Commerce Development</a>
+            <a href="#svc-redesign" data-service="redesign">Website Redesign</a>
+            <a href="#svc-deploy" data-service="deploy">Deployment &amp; Optimization</a>
+          </div>
+        </li>
+        <li><a class="nav__link" href="#work">Our Work</a></li>
+        <li><a class="nav__link" href="#about">About</a></li>
+        <li><a class="nav__link" href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+
+    <a class="btn btn--yellow" href="#contact" data-popup>Start a Project</a>
+    <button class="burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav"><span></span></button>
+  </div>
+
+  <nav class="m-panel" id="mobile-nav" aria-label="Mobile">
+    <a href="#top">Home</a>
+    <a href="#services">Services</a>
+    <div class="sub">
+      <a href="#svc-web" data-service="web">Website Design &amp; Development</a>
+      <a href="#svc-uiux" data-service="uiux">UI/UX Design</a>
+      <a href="#svc-brand" data-service="brand">Branding &amp; Graphic Design</a>
+      <a href="#svc-store" data-service="store">E-Commerce Development</a>
+      <a href="#svc-redesign" data-service="redesign">Website Redesign</a>
+      <a href="#svc-deploy" data-service="deploy">Deployment &amp; Optimization</a>
+    </div>
+    <a href="#work">Our Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+    <a class="btn btn--yellow" href="#contact" data-popup>Start a Project</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ======================= HERO ======================= -->
+<section class="hero tone-dark" id="top" aria-labelledby="hero-title">
+  <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero__in">
+    <h1 id="hero-title">
+      <span class="line"><span style="--i:0">We Design Bold.</span></span>
+      <span class="line"><span style="--i:1">We Deploy Fast.</span></span>
+    </h1>
+    <p class="hero__sub">Design &amp; Deploy is a digital design and development studio creating brands, websites and digital experiences that move businesses forward.</p>
+    <div class="hero__cta">
+      <a class="btn btn--yellow" href="#contact" data-popup>Start a Project</a>
+      <a class="btn btn--ghost" href="#work">View Our Work</a>
+    </div>
+  </div>
+  <p class="hero__note">Studio based in Noida, India.<br>Click the field to send a pulse.</p>
+</section>
+
+<!-- ======================= INTRO ======================= -->
+<section class="band tone-light intro" id="studio" aria-labelledby="intro-title">
+  <div class="wrap split">
+    <div class="split__a">
+      <h2 class="t-lg" id="intro-title">Design that gets attention. Development that gets results.</h2>
+    </div>
+    <div class="split__b">
+      <div class="prose">
+        <p class="lead">A great website isn't just something that looks good. It needs to communicate clearly, feel effortless to use, load quickly, work everywhere and ultimately help your business grow.</p>
+        <p>That's where we come in. Design &amp; Deploy is a boutique web design and development studio in India, combining creative thinking with technical execution to create digital products that look sharp and perform even better.</p>
+        <p>From the first idea to the final deployment, we bring strategy, design, development and creative execution together under one roof, helping ambitious businesses turn ideas into memorable brands, high-performing websites and digital experiences that actually work.</p>
+      </div>
+      <ul class="points">
+        <li><strong>Strategy</strong><span>We start by understanding your business, audience, goals and competitive landscape.</span></li>
+        <li><strong>Design</strong><span>We turn that understanding into visual identities, interfaces and experiences that feel distinctive and intentional.</span></li>
+        <li><strong>Development</strong><span>We transform designs into responsive, fast and functional websites using modern web technologies.</span></li>
+        <li><strong>Deployment</strong><span>We take your project from finished code to a live, optimized digital experience.</span></li>
+      </ul>
+      <p class="intro__close">One team. One process. From concept to launch.</p>
+      <a class="btn btn--yellow" href="#contact" data-popup>Start a Project</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= SERVICES ======================= -->
+<section class="band tone-dark" id="services" aria-labelledby="services-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="t-xl" id="services-title">What We Do</h2>
+      <p class="lead">Digital experiences built around your business.</p>
+    </div>
+
+    <div class="svc-list">
+      <div class="svc" id="svc-web">
+        <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-web-p"><span>Website Design &amp; Development</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
+        <div class="svc__panel" id="svc-web-p" role="region" aria-label="Website Design and Development">
+          <div class="svc__clip"><div class="svc__body">
+            <div class="svc__text">
+              <p class="svc__lead">Websites designed to look good and work hard.</p>
+              <p>We design and develop modern websites that combine strong visual design with clean, reliable functionality.</p>
+              <p>From corporate websites and landing pages to custom platforms and content-driven experiences, we build websites around what your business actually needs.</p>
+            </div>
+            <div class="svc__list">
+              <p class="svc__ltitle">Services include</p>
+              <ul>
+                <li>Custom website design</li><li>Responsive web development</li><li>Business websites</li><li>Corporate websites</li><li>Landing pages</li><li>Website redesign</li><li>WordPress development</li><li>Headless WordPress</li><li>Custom front-end development</li><li>Website maintenance</li>
+              </ul>
+            </div>
+            <a class="btn btn--ink" href="#contact" data-pick="Website design and development">Explore Web Development →</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="svc" id="svc-uiux">
+        <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-uiux-p"><span>UI/UX Design</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
+        <div class="svc__panel" id="svc-uiux-p" role="region" aria-label="UI/UX Design">
+          <div class="svc__clip"><div class="svc__body">
+            <div class="svc__text">
+              <p class="svc__lead">Good design should make things feel obvious.</p>
+              <p>We create user interfaces and digital experiences that are visually distinctive while keeping usability at the center.</p>
+              <p>Our process combines information architecture, user flows, wireframes, interface design and interaction thinking to create experiences people understand naturally.</p>
+            </div>
+            <div class="svc__list">
+              <p class="svc__ltitle">Services include</p>
+              <ul>
+                <li>UX research</li><li>User flows</li><li>Wireframing</li><li>Information architecture</li><li>UI design</li><li>Design systems</li><li>Responsive interface design</li><li>Prototyping</li><li>UX audits</li>
+              </ul>
+            </div>
+            <a class="btn btn--ink" href="#contact" data-pick="UI/UX design">Explore UI/UX →</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="svc" id="svc-brand">
+        <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-brand-p"><span>Branding &amp; Graphic Design</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
+        <div class="svc__panel" id="svc-brand-p" role="region" aria-label="Branding and Graphic Design">
+          <div class="svc__clip"><div class="svc__body">
+            <div class="svc__text">
+              <p class="svc__lead">Your brand is more than a logo.</p>
+              <p>We build cohesive visual identities that give businesses a recognizable voice across digital and physical touchpoints.</p>
+              <p>From logos and brand systems to marketing creatives and social media design, we make sure your brand looks consistent wherever people encounter it.</p>
+            </div>
+            <div class="svc__list">
+              <p class="svc__ltitle">Services include</p>
+              <ul>
+                <li>Logo design</li><li>Brand identity</li><li>Visual identity systems</li><li>Brand guidelines</li><li>Marketing creatives</li><li>Social media design</li><li>Campaign design</li><li>Presentation design</li><li>Print design</li>
+              </ul>
+            </div>
+            <a class="btn btn--ink" href="#contact" data-pick="Branding and graphic design">Explore Branding →</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="svc" id="svc-store">
+        <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-store-p"><span>E-Commerce Development</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
+        <div class="svc__panel" id="svc-store-p" role="region" aria-label="E-Commerce Development">
+          <div class="svc__clip"><div class="svc__body">
+            <div class="svc__text">
+              <p class="svc__lead">Turn browsing into buying.</p>
+              <p>We create e-commerce experiences designed to make buying simple.</p>
+              <p>From product presentation and user experience to shopping carts, checkout flows and payment integration, we build online stores that are designed around conversion.</p>
+            </div>
+            <div class="svc__list">
+              <p class="svc__ltitle">Services include</p>
+              <ul>
+                <li>WooCommerce development</li><li>E-commerce website design</li><li>Product page design</li><li>Shopping cart implementation</li><li>Checkout optimization</li><li>Payment gateway integration</li><li>Product catalogues</li><li>Responsive e-commerce experiences</li>
+              </ul>
+            </div>
+            <a class="btn btn--ink" href="#contact" data-pick="E-commerce development">Build Your Store →</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="svc" id="svc-redesign">
+        <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-redesign-p"><span>Website Redesign</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
+        <div class="svc__panel" id="svc-redesign-p" role="region" aria-label="Website Redesign">
+          <div class="svc__clip"><div class="svc__body">
+            <div class="svc__text">
+              <p class="svc__lead">Your business has evolved. Your website should too.</p>
+              <p>We redesign outdated websites into modern digital experiences with better visual hierarchy, clearer messaging, improved usability, responsive layouts and stronger conversion paths.</p>
+            </div>
+            <div class="svc__list">
+              <p class="svc__ltitle">We focus on</p>
+              <ul>
+                <li>Modern visual design</li><li>Better UX</li><li>Mobile responsiveness</li><li>Clearer messaging</li><li>Stronger conversion paths</li><li>Faster performance</li><li>Better content hierarchy</li><li>Improved technical foundations</li>
+              </ul>
+            </div>
+            <a class="btn btn--ink" href="#contact" data-pick="Website redesign">Redesign Your Website →</a>
+          </div></div>
+        </div>
+      </div>
+
+      <div class="svc" id="svc-deploy">
+        <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-deploy-p"><span>Deployment &amp; Optimization</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
+        <div class="svc__panel" id="svc-deploy-p" role="region" aria-label="Deployment and Optimization">
+          <div class="svc__clip"><div class="svc__body">
+            <div class="svc__text">
+              <p class="svc__lead">Going live is part of the job.</p>
+              <p>We don't hand you a folder of files and wish you luck.</p>
+              <p>We help take your project through testing, hosting configuration, deployment and optimization so your website is ready for real users.</p>
+            </div>
+            <div class="svc__list">
+              <p class="svc__ltitle">Services include</p>
+              <ul>
+                <li>Testing</li><li>Hosting configuration</li><li>Deployment</li><li>Optimization</li><li>Website maintenance</li>
+              </ul>
+            </div>
+            <a class="btn btn--ink" href="#contact" data-pick="Deployment and optimization">Deploy Your Project →</a>
+          </div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="more">
+      <div>
+        <h3 class="t-l">Need something different?</h3>
+        <p style="margin-top:10px">If your project doesn't fit neatly into one of these categories, that's fine. Tell us what you're trying to build.</p>
+      </div>
+      <a class="btn btn--yellow" href="#contact" data-popup data-pick="Something else">Start a Conversation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= WORK ======================= -->
+<section class="band tone-light" id="work" aria-labelledby="work-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="t-xl" id="work-title">Our Work</h2>
+      <div>
+        <p class="t-m">Ideas are easy. Execution is everything.</p>
+        <p style="margin-top:12px">We've worked across industries to create websites, digital products, e-commerce experiences and visual identities designed around real business objectives.</p>
+      </div>
+    </div>
+
+    <h3 class="t-l" style="margin-bottom:32px">Selected projects</h3>
+    <div class="work">
+
+      <article class="work__item">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">eduvate</span></div>
+          <div class="browser__screen"><img src="assets/work/eduvate.png" alt="Eduvate education platform and LMS website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">Education platform &amp; LMS</span>
+          <h3>Eduvate</h3>
+          <p class="prose">A modern educational platform combining a custom front-end experience with a powerful WordPress-based learning management system.</p>
+          <ul class="tags"><li>UI/UX</li><li>Web Development</li><li>WordPress</li><li>LMS</li><li>Responsive Design</li></ul>
+        </div>
+        <a class="btn btn--ink work__cta" data-project="eduvate" href="#work" aria-label="View Eduvate work (opens in a new tab)">View work</a>
+      </article>
+
+      <article class="work__item">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">osae-prints</span></div>
+          <div class="browser__screen"><img src="assets/work/osae.png" alt="OSAE Prints e-commerce website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">E-commerce experience</span>
+          <h3>OSAE Prints</h3>
+          <p class="prose">A visually engaging e-commerce website created for a brand specializing in collectible 3D products.</p>
+          <ul class="tags"><li>E-commerce</li><li>WooCommerce</li><li>UI Design</li><li>Development</li><li>Payment Integration</li></ul>
+        </div>
+        <a class="btn btn--ink work__cta" data-project="osae" href="#work" aria-label="View OSAE Prints work (opens in a new tab)">View work</a>
+      </article>
+
+      <article class="work__item">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">gradmit</span></div>
+          <div class="browser__screen"><img src="assets/work/gradmit.png" alt="Gradmit education consultancy website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">Education consultancy platform</span>
+          <h3>Gradmit</h3>
+          <p class="prose">A professional digital experience designed to communicate educational expertise while making the journey for prospective students clearer.</p>
+          <ul class="tags"><li>Web Design</li><li>Development</li><li>UX</li><li>Responsive Design</li></ul>
+        </div>
+        <a class="btn btn--ink work__cta" data-project="gradmit" href="#work" aria-label="View Gradmit work (opens in a new tab)">View work</a>
+      </article>
+
+      <article class="work__item">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">fizixcoach</span></div>
+          <div class="browser__screen"><img src="assets/work/fizixcoach.png" alt="FizixCoach education and coaching website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">Education &amp; coaching website</span>
+          <h3>FizixCoach</h3>
+          <p class="prose">A focused digital presence designed to communicate expertise, services and educational offerings through a clean and modern interface.</p>
+          <ul class="tags"><li>UI/UX</li><li>Web Development</li><li>Content Structure</li></ul>
+        </div>
+        <a class="btn btn--ink work__cta" data-project="fizixcoach" href="#work" aria-label="View FizixCoach work (opens in a new tab)">View work</a>
+      </article>
+
+      <article class="work__item">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">vc-labtech</span></div>
+          <div class="browser__screen"><img src="assets/work/vc-labtech-corporate-website-design.svg" alt="VC Labtech corporate website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">Corporate digital presence</span>
+          <h3>VC Labtech</h3>
+          <p class="prose">A professional website designed to communicate technical expertise and establish a stronger digital presence.</p>
+          <ul class="tags"><li>Web Design</li><li>Development</li><li>Corporate Website</li></ul>
+        </div>
+        <a class="btn btn--ink work__cta" data-project="vclabtech" href="#work" aria-label="View VC Labtech work (opens in a new tab)">View work</a>
+      </article>
+
+      <article class="work__item">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">navrang-steels</span></div>
+          <div class="browser__screen"><img src="assets/work/abstract.png" alt="Navrang Steels industrial website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">Industrial website</span>
+          <h3>Abstract Solutions</h3>
+          <p class="prose">A business-focused digital presence built around clear communication, credibility and straightforward navigation.</p>
+          <ul class="tags"><li>Web Design</li><li>Development</li><li>Responsive Design</li></ul>
+        </div>
+        <a class="btn btn--ink work__cta" data-project="navrang" href="#work" aria-label="View Navrang Steels work (opens in a new tab)">View work</a>
+      </article>
+
+    </div>
+
+      <div class="work__open">
+        <div>
+          <h3>Have a project in mind?</h3>
+          <p>Your project could be next.</p>
+        </div>
+        <a class="btn btn--ink" href="#contact" data-popup>Start a Project →</a>
+      </div>
+  </div>
+</section>
+
+<!-- ======================= WHY ======================= -->
+<section class="band tone-dark" id="why" aria-labelledby="why-title">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:clamp(40px,6vw,72px)">
+      <div class="split__a">
+        <h2 class="t-xl" id="why-title">Why Design &amp; Deploy?</h2>
+        <p class="t-m" style="margin-top:18px">Small team. Big execution.</p>
+      </div>
+      <div class="split__b prose">
+        <p class="lead">You don't need five account managers between you and the people actually doing the work.</p>
+        <p>Design &amp; Deploy is intentionally small. That means fewer layers, faster communication and direct collaboration with the people designing and building your project.</p>
+      </div>
+    </div>
+
+    <div class="rows">
+      <div class="rows__item"><h3>Design meets development.</h3><p>Our biggest advantage is that design and development happen together. We understand what looks good and what can actually be built well.</p></div>
+      <div class="rows__item"><h3>Built around your business.</h3><p>We don't believe in forcing every client into the same template. Your website should reflect your business, audience and goals.</p></div>
+      <div class="rows__item"><h3>Direct communication.</h3><p>You work directly with the people responsible for your project. No unnecessary middlemen. No endless handoffs.</p></div>
+      <div class="rows__item"><h3>Built to perform.</h3><p>Beautiful websites mean very little if they are slow, confusing or difficult to use. We care about responsiveness, performance, usability and maintainability.</p></div>
+      <div class="rows__item"><h3>From concept to launch.</h3><p>Strategy. Design. Development. Deployment. One connected process from the first conversation to the moment your website goes live.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= PROCESS ======================= -->
+<section class="band tone-light" id="process" aria-labelledby="process-title">
+  <div class="wrap">
+    <div class="section-head" style="margin-bottom:0">
+      <h2 class="t-xl" id="process-title">Our Process</h2>
+      <p class="lead">From idea to online.</p>
+    </div>
+    <ol class="process">
+      <li><h3>Discover</h3><p>We learn about your business, your audience, your goals and what success looks like.</p></li>
+      <li><h3>Define</h3><p>We establish the structure, direction, content requirements and technical approach.</p></li>
+      <li><h3>Design</h3><p>We develop the visual language and user experience that will shape your digital presence.</p></li>
+      <li><h3>Develop</h3><p>We turn the approved design into a responsive, functional and optimized website.</p></li>
+      <li><h3>Deploy</h3><p>We test, optimize and launch your project.</p></li>
+      <li><h3>Grow</h3><p>Launch isn't the finish line. We can continue improving, maintaining and evolving your digital presence as your business grows.</p></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ======================= AUDIENCE ======================= -->
+<section class="band tone-yellow" id="for" aria-labelledby="for-title">
+  <div class="wrap">
+    <div class="split">
+      <div class="split__a"><h2 class="t-lg" id="for-title">Built for Businesses That Want More</h2></div>
+      <div class="split__b prose"><p class="lead">Whether you're launching something new, rebuilding something old or trying to make your existing digital presence actually work, we're here to help.</p></div>
+    </div>
+    <ul class="audience">
+      <li><h3>Startups</h3><p>Build a credible digital presence from day one.</p></li>
+      <li><h3>Small &amp; Growing Businesses</h3><p>Turn your website into an asset instead of an afterthought.</p></li>
+      <li><h3>Established Businesses</h3><p>Modernize your digital presence without losing what already works.</p></li>
+      <li><h3>Personal Brands &amp; Professionals</h3><p>Create a digital identity that communicates expertise and builds trust.</p></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ======================= ABOUT ======================= -->
+<section class="band tone-dark" id="about" aria-labelledby="about-title">
+  <div class="wrap">
+    <div class="split">
+      <div class="split__a">
+        <h2 class="t-xl" id="about-title">About Design &amp; Deploy</h2>
+        <p class="t-m" style="margin-top:18px">Two specialists. One digital studio.</p>
+      </div>
+      <div class="split__b prose">
+        <p class="lead">Design &amp; Deploy was built around a simple idea: great digital work happens when design and development work together from the beginning.</p>
+        <p>We're a two-person digital studio combining creative direction, graphic design, UI/UX and web development to help businesses turn ideas into polished digital experiences.</p>
+        <p>No giant agency structure. No unnecessary layers. Just direct collaboration and focused execution.</p>
+        <p>We're based in Noida, India, helping businesses across Delhi-NCR, India and beyond build stronger brands and better digital experiences.</p>
+      </div>
+    </div>
+
+    <div class="people">
+      <article class="person">
+        <div class="person__photo"><img src="assets/Gunjeet.jpg.webp" alt="Gunjeet Singh, Graphic Designer and Creative Lead at Design &amp; Deploy" width="800" height="600" loading="lazy" decoding="async"></div>
+        <h3>Gunjeet Singh</h3>
+        <p class="person__role">Graphic Designer &amp; Creative Lead</p>
+        <p class="prose">Gunjeet leads the visual side of Design &amp; Deploy, working across branding, graphic design, creative direction and marketing design. From defining a brand's visual language to creating campaign assets, his focus is making businesses look distinctive and consistent.</p>
+      </article>
+      <article class="person">
+        <div class="person__photo"><img src="assets/Akshat.jpg.webp" alt="Akshat Jha, Web Developer and Technical Lead at Design &amp; Deploy" width="800" height="600" loading="lazy" decoding="async"></div>
+        <h3>Akshat Jha</h3>
+        <p class="person__role">Web Developer &amp; Technical Lead</p>
+        <p class="prose">Akshat handles the technical side of Design &amp; Deploy, from front-end development and WordPress solutions to integrations, deployment and website optimization. His focus is turning ambitious designs into reliable, responsive and functional digital experiences.</p>
+      </article>
+    </div>
+
+    <div class="about-block">
+      <h3 class="t-l">Why we started</h3>
+      <div class="prose">
+        <p>Too often, businesses have to choose between a design team that understands aesthetics and a development team that understands technology. We don't think you should have to.</p>
+        <p>Design &amp; Deploy brings both disciplines together from the beginning. The result is a more connected process, faster communication and websites where the design and technology actually work together.</p>
+      </div>
+    </div>
+
+    <div class="about-block">
+      <h3 class="t-l">Our philosophy</h3>
+      <div class="rows">
+        <div class="rows__item"><h3>Design with purpose.</h3><p>We don't design for decoration. Every visual decision should communicate something.</p></div>
+        <div class="rows__item"><h3>Build with intention.</h3><p>Technology should serve the experience, not complicate it.</p></div>
+        <div class="rows__item"><h3>Keep things simple.</h3><p>The best solutions are often the ones that make complex things feel effortless.</p></div>
+        <div class="rows__item"><h3>Sweat the details.</h3><p>Typography, spacing, motion, responsiveness, loading speed. The small things add up.</p></div>
+        <div class="rows__item"><h3>Keep moving.</h3><p>Ideas are valuable. Execution is what turns them into businesses.</p></div>
+      </div>
+    </div>
+
+    <div class="small-by-design">
+      <div>
+        <h3 class="t-lg">We're small by design.</h3>
+        <p>Being a small studio isn't a limitation. It's an advantage. You get direct access to the people actually working on your project, faster communication and fewer unnecessary layers between an idea and its execution.</p>
+      </div>
+      <a class="btn btn--yellow" href="#contact" data-popup>Work With Us →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= FAQ ======================= -->
+<section class="band tone-light" id="faq" aria-labelledby="faq-title">
+  <div class="wrap split">
+    <div class="split__a"><h2 class="t-xl" id="faq-title">Frequently Asked Questions</h2></div>
+    <div class="split__b faq">
+      <details><summary>What does Design &amp; Deploy do?</summary><p>Design &amp; Deploy is a digital design and development studio specializing in website design, web development, UI/UX design, branding, graphic design and e-commerce development.</p></details>
+      <details><summary>Where is Design &amp; Deploy based?</summary><p>Design &amp; Deploy is a digital studio based in India, working with businesses and clients across India and beyond.</p></details>
+      <details><summary>Do you design and develop websites?</summary><p>Yes. We handle the complete process from website strategy and UI/UX design through development, testing and deployment.</p></details>
+      <details><summary>Do you work with WordPress?</summary><p>Yes. We work with WordPress and WooCommerce as well as custom front-end development and headless WordPress solutions, depending on the project's requirements.</p></details>
+      <details><summary>Can you redesign an existing website?</summary><p>Yes. We can audit an existing website and redesign its visual system, user experience, structure and technical implementation.</p></details>
+      <details><summary>Do you provide branding services?</summary><p>Yes. Our branding services include logo design, visual identity, brand systems, guidelines, marketing creatives and digital brand assets.</p></details>
+      <details><summary>Do you work with startups?</summary><p>Absolutely. We work with startups and growing businesses that need a strong brand and digital presence without unnecessary complexity.</p></details>
+      <details><summary>How much does a website cost?</summary><p>Every project is different. Pricing depends on the scope, number of pages, functionality, integrations, design requirements and development complexity. Contact us with your requirements and we'll recommend the right approach.</p></details>
+      <details><summary>How long does it take to build a website?</summary><p>Project timelines depend on complexity and scope. A focused business website can take considerably less time than a custom platform or e-commerce project. We'll provide a timeline after understanding your requirements.</p></details>
+      <details><summary>Can you maintain my website after launch?</summary><p>Yes. We can provide ongoing website maintenance, updates, improvements and technical support depending on your requirements.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= JOIN + CLIENT LOGOS ======================= -->
+<section class="join tone-dark" id="clients" aria-labelledby="join-title">
+  <div class="join__in">
+    <p class="join__kicker">The best are already here</p>
+    <h2 class="join__title" id="join-title"><span>Join</span> <img class="join__logo" src="assets/logo-white.png" alt="Design &amp; Deploy" width="250" height="48"><span>now.</span></h2>
+    <p class="sr-only">Companies we've worked with: Eduvate, OSAE Prints, Gradmit, FizixCoach, VC Labtech and Navrang Steels.</p>
+
+    <!-- Each .slot cycles through its own logos. Add more <img> tags to a slot to add more clients. -->
+    <div class="rot" aria-hidden="true">
+      <div class="slot">
+        <img class="is-active" src="assets/Brands/favicon.png" alt="Eduvate logo" width="270" height="100">
+        <img src="assets/Brands/gradmit.webp" alt="FizixCoach logo" width="320" height="100">
+      </div>
+      <div class="slot">
+        <img class="is-active" src="assets/Brands/logo (2).png" alt="OSAE Prints logo" width="345" height="100">
+        <img src="assets/Brands/logo (3).png" alt="VC Labtech logo" width="325" height="100">
+      </div>
+      <div class="slot">
+        <img class="is-active" src="assets/Brands/logo-full.png" alt="Gradmit logo" width="265" height="100">
+        <img src="assets/Brands/logo_nobg.png" alt="Navrang Steels logo" width="380" height="100">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CTA (shader) ======================= -->
+<section class="cta tone-red" id="consult" aria-labelledby="cta-title">
+  <canvas class="cta__canvas" id="cta-canvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <h2 id="cta-title">Let's Build Something Worth Looking At.</h2>
+    <p>Your next website shouldn't look like everyone else's. Tell us what you're building, where you're stuck or where you want to go. We'll figure out the rest.</p>
+    <div class="cta__row">
+      <a class="btn btn--yellow" href="#contact" data-popup>Start a Project</a>
+      <a class="cta__mail" data-mailto data-email href="#contact">hello@designanddeploy.in</a>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= CONTACT ======================= -->
+<section class="band tone-light" id="contact" aria-labelledby="contact-title">
+  <div class="wrap split">
+    <div class="split__a">
+      <h2 class="t-xl" id="contact-title">Let's Build Something.</h2>
+      <p class="t-m" style="margin-top:18px">Have an idea, a problem or a website that needs fixing?</p>
+      <div class="prose" style="margin-top:18px">
+        <p>Tell us about it. Whether you're starting from scratch, redesigning an existing website or simply trying to figure out what your business needs next, we'd love to hear from you.</p>
+      </div>
+
+      <div class="contact__ask">
+        <h3>Tell us:</h3>
+        <ul>
+          <li><strong>What are you building?</strong><span>Give us a quick overview of your business or idea.</span></li>
+          <li><strong>What do you need?</strong><span>Website, branding, e-commerce, UI/UX, development or something else?</span></li>
+          <li><strong>What's your timeline?</strong><span>Let us know when you'd ideally like to launch.</span></li>
+          <li><strong>What's your budget?</strong><span>This helps us recommend the right approach.</span></li>
+        </ul>
+      </div>
+
+      <dl class="details">
+        <div><dt>Email</dt><dd><a data-mailto data-email href="#contact">hello@designanddeploy.in</a></dd></div>
+        <div><dt>Based in</dt><dd>Noida, India</dd></div>
+        <div><dt>Working with</dt><dd>Clients across India and beyond</dd></div>
+      </dl>
+    </div>
+
+    <div class="split__b">
+      <form class="form" id="contact-form">
+        <div class="form__row">
+          <div class="field"><label for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <div class="form__row">
+          <div class="field"><label for="f-company">Company / Brand</label><input id="f-company" name="company" type="text" autocomplete="organization"></div>
+          <div class="field">
+            <label for="f-service">What can we help you with?</label>
+            <select id="f-service" name="service" required>
+              <option value="" disabled selected>Choose a service</option>
+              <option>Website design and development</option>
+              <option>UI/UX design</option>
+              <option>Branding and graphic design</option>
+              <option>E-commerce development</option>
+              <option>Website redesign</option>
+              <option>Deployment and optimization</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="f-msg">Project details</label><textarea id="f-msg" name="message" required placeholder="What are you building? Where are you stuck?"></textarea></div>
+        <div class="form__row">
+          <div class="field"><label for="f-time">Timeline</label><input id="f-time" name="timeline" type="text" placeholder="When would you like to launch?"></div>
+          <div class="field"><label for="f-budget">Budget</label><input id="f-budget" name="budget" type="text" placeholder="Helps us recommend the right approach"></div>
+        </div>
+        <div class="form__foot">
+          <button class="btn btn--red" type="submit">Send Project Enquiry →</button>
+          <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <div class="form__note">
+        <strong>Not ready to start?</strong>
+        <p>That's completely fine. You can simply tell us what you're thinking. We'll help you figure out the next step.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ======================= FOOTER ======================= -->
+<footer class="footer tone-dark">
+  <div class="wrap">
+    <div class="footer__cta">
+      <h2 class="t-xl">Have an idea? Let's turn it into something real.</h2>
+      <p class="lead">Design it. Build it. Deploy it.</p>
+      <a class="btn btn--yellow" href="#contact" data-popup>Start a Project →</a>
+    </div>
+
+    <div class="footer__grid">
+      <div>
+        <a class="logo logo-chip" href="#top" aria-label="Design &amp; Deploy, back to top"><img src="assets/logo.png" alt="Design &amp; Deploy" width="190" height="36"></a>
+        <p class="footer__blurb">A digital design and development studio based in Noida, India, helping businesses across Delhi-NCR, India and beyond build stronger brands and better digital experiences.</p>
+      </div>
+      <div>
+        <h3>Navigate</h3>
+        <ul>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#work">Our Work</a></li>
+          <li><a href="#why">Why Design &amp; Deploy</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Services</h3>
+        <ul>
+          <li><a href="#svc-web" data-service="web">Website Design &amp; Development</a></li>
+          <li><a href="#svc-uiux" data-service="uiux">UI/UX Design</a></li>
+          <li><a href="#svc-brand" data-service="brand">Branding &amp; Graphic Design</a></li>
+          <li><a href="#svc-store" data-service="store">E-Commerce Development</a></li>
+          <li><a href="#svc-redesign" data-service="redesign">Website Redesign</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact us</h3>
+        <ul>
+          <li>Noida, India</li>
+          <li><a data-mailto data-email href="#contact">hello@designanddeploy.in</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="footer__base">Copyright &copy; <span id="year">2026</span> Design &amp; Deploy. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- ======================= START-A-PROJECT POP-UP ======================= -->
+<dialog class="pop" id="start-pop" aria-labelledby="pop-title">
+  <div class="pop__card" tabindex="-1" autofocus>
+    <aside class="pop__side">
+      <img class="pop__logo" src="assets/logo-white.png" alt="Design &amp; Deploy" width="250" height="48">
+      <div class="pop__pitch">
+        <h2 id="pop-title">Tell us what you're building.</h2>
+        <p>We'll reply with what we'd do and what it takes.</p>
+      </div>
+      <ul class="pop__points">
+        <li>Free consultation</li>
+        <li>Direct line to the designer and the developer</li>
+        <li>Clients across India and beyond</li>
+      </ul>
+    </aside>
+
+    <div class="pop__main tone-light">
+      <div class="pop__head">
+        <h3>Start a project</h3>
+        <p>Share the basics and we'll come back with next steps.</p>
+      </div>
+      <form class="form" id="pop-form">
+        <div class="field"><label for="p-name">Name</label><input id="p-name" name="name" type="text" autocomplete="name" required></div>
+        <div class="form__row">
+          <div class="field"><label for="p-email">Email</label><input id="p-email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field">
+            <label for="p-service">What do you need?</label>
+            <select id="p-service" name="service" required>
+              <option value="" disabled selected>Choose a service</option>
+              <option>Website design and development</option>
+              <option>UI/UX design</option>
+              <option>Branding and graphic design</option>
+              <option>E-commerce development</option>
+              <option>Website redesign</option>
+              <option>Deployment and optimization</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field"><label for="p-msg">Project details</label><textarea id="p-msg" name="message" required placeholder="What are you building? Where are you stuck?"></textarea></div>
+        <div class="form__foot">
+          <button class="btn btn--red" type="submit">Send Project Enquiry →</button>
+          <p class="form__status" id="pop-status" role="status" aria-live="polite"></p>
+        </div>
+        <p class="pop__alt">Prefer WhatsApp? <a data-whatsapp href="#">Message us</a></p>
+      </form>
+    </div>
+  </div>
+
+  <button class="pop__close" type="button" aria-label="Close pop-up" data-pop-close>
+    <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M2 2l14 14M16 2L2 16"/></svg>
+  </button>
+</dialog>
+
+<!-- ======================= FLOATING WHATSAPP ======================= -->
+<a class="wa" data-whatsapp href="#" aria-label="Chat with Design &amp; Deploy on WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+(() => {
+  'use strict';
+
+  /* ---------------------------------------------------------------
+     CONFIG
+     --------------------------------------------------------------- */
+  const CONFIG = {
+    email: 'hello@designanddeploy.in',
+    whatsapp: '917073764730', // REPLACE: country code + number, digits only (e.g. 919876543210)
+    formEndpoint: '',         // optional: POST JSON here instead of opening the email app
+    // REPLACE: live site URL for each "View work" button
+    projectLinks: {
+      eduvate: 'https://eduvate.in/',
+      osae: 'https://osaeprints.com/',
+      gradmit: 'https://gradmit.co/',
+      fizixcoach: 'https://fizixcoach.in/',
+      vclabtech: '',
+      navrang: 'https://akshat899.github.io/Abstract/'
+    }
+  };
+
+  const $  = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)');
+
+  $$('[data-email]').forEach(el => { el.textContent = CONFIG.email; });
+  $$('[data-mailto]').forEach(el => { el.href = 'mailto:' + CONFIG.email; });
+  $('#year').textContent = new Date().getFullYear();
+
+  // WhatsApp links (floating button + pop-up)
+  const WA_URL = 'https://wa.me/' + CONFIG.whatsapp.replace(/\D/g, '') + '?text=' +
+    encodeURIComponent("Hi Design & Deploy, I'd like to talk about a project.");
+  $$('[data-whatsapp]').forEach(a => { a.href = WA_URL; a.target = '_blank'; a.rel = 'noopener'; });
+
+  // "View work" buttons: use CONFIG.projectLinks, or a real URL already written in the button's href
+  const withScheme = u => /^[a-z][a-z0-9+.-]*:/i.test(u) ? u : 'https://' + u.replace(/^\/+/, '');
+  $$('[data-project]').forEach(a => {
+    const attr = (a.getAttribute('href') || '').trim();
+    const raw = (CONFIG.projectLinks[a.dataset.project] || '').trim() || (attr && attr[0] !== '#' ? attr : '');
+    if (raw) {
+      const url = withScheme(raw);
+      a.href = url; a.target = '_blank'; a.rel = 'noopener noreferrer';
+      a.removeAttribute('aria-disabled'); a.classList.remove('is-pending'); a.removeAttribute('title');
+      const bar = a.closest('.work__item') && a.closest('.work__item').querySelector('.browser__url');
+      try { if (bar) bar.textContent = new URL(url).hostname.replace(/^www\./, ''); } catch (e) { /* keep default label */ }
+    } else {
+      a.removeAttribute('href'); a.setAttribute('aria-disabled', 'true'); a.classList.add('is-pending'); a.title = 'Link coming soon';
+    }
+  });
+
+  /* ---------------------------------------------------------------
+     Capsule header: services menu + mobile dropdown + active link
+     --------------------------------------------------------------- */
+  const header = $('#site-header');
+  const menuItem = $('#services-menu');
+  const menuBtn = $('.nav__btn', menuItem);
+  const setMenu = open => { menuItem.classList.toggle('is-open', open); menuBtn.setAttribute('aria-expanded', String(open)); };
+  menuBtn.addEventListener('click', () => setMenu(!menuItem.classList.contains('is-open')));
+
+  const burger = $('.burger');
+  const mnav = $('#mobile-nav');
+  mnav.inert = true;
+  function toggleMobile(force) {
+    const open = typeof force === 'boolean' ? force : !mnav.classList.contains('is-open');
+    mnav.classList.toggle('is-open', open);
+    mnav.inert = !open;
+    burger.setAttribute('aria-expanded', String(open));
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+  burger.addEventListener('click', () => toggleMobile());
+  $$('a', mnav).forEach(a => a.addEventListener('click', () => toggleMobile(false)));
+
+  document.addEventListener('click', e => {
+    if (!menuItem.contains(e.target)) setMenu(false);
+    if (!header.contains(e.target)) toggleMobile(false);
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') { setMenu(false); toggleMobile(false); } });
+  matchMedia('(min-width: 961px)').addEventListener('change', e => { if (e.matches) toggleMobile(false); });
+
+  const navLinks = $$('.nav__link');
+  const spy = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      const id = en.target.id;
+      navLinks.forEach(a => {
+        if (a.getAttribute('href') === '#' + id) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+      });
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  ['top', 'work', 'about', 'contact'].forEach(id => { const s = document.getElementById(id); if (s) spy.observe(s); });
+
+  /* ---------------------------------------------------------------
+     Services accordion
+     --------------------------------------------------------------- */
+  const svcs = $$('.svc');
+  function setSvc(item, open) {
+    item.classList.toggle('is-open', open);
+    $('.svc__btn', item).setAttribute('aria-expanded', String(open));
+    $('.svc__panel', item).inert = !open;
+  }
+  svcs.forEach(item => {
+    $('.svc__btn', item).addEventListener('click', () => {
+      const wasOpen = item.classList.contains('is-open');
+      svcs.forEach(s => setSvc(s, false));
+      setSvc(item, !wasOpen);
+    });
+  });
+  svcs.forEach((s, i) => setSvc(s, i === 0));
+
+  // Jump straight to one service: open it, collapse the rest instantly (so nothing shifts), then scroll to it
+  function jumpToService(key) {
+    const target = document.getElementById('svc-' + key);
+    if (!target) return;
+    svcs.forEach(s => { if (s !== target) { s.classList.add('is-instant'); setSvc(s, false); } });
+    setSvc(target, true);
+    void target.offsetHeight; // apply the new layout before measuring the scroll position
+    target.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
+    setTimeout(() => svcs.forEach(s => s.classList.remove('is-instant')), 80);
+  }
+  $$('[data-service]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    jumpToService(a.dataset.service);
+    setMenu(false);
+    const li = a.closest('.has-menu');
+    if (li) { li.classList.add('is-suppressed'); li.addEventListener('mouseleave', () => li.classList.remove('is-suppressed'), { once: true }); }
+  }));
+  const hashKey = (location.hash.match(/^#svc-([a-z]+)$/) || [])[1];
+  if (hashKey) window.addEventListener('load', () => jumpToService(hashKey), { once: true });
+
+  // Service buttons preselect the matching option in the contact form
+  $$('[data-pick]').forEach(a => a.addEventListener('click', () => {
+    const sel = $('#f-service');
+    const opt = [...sel.options].find(o => o.textContent.trim() === a.dataset.pick);
+    if (opt) sel.value = opt.value || opt.textContent;
+  }));
+
+  /* ---------------------------------------------------------------
+     WebGL shader canvases
+     --------------------------------------------------------------- */
+  const VERT = 'attribute vec2 p; void main(){ gl_Position = vec4(p, 0.0, 1.0); }';
+
+  const COMMON = `
+    #ifdef GL_FRAGMENT_PRECISION_HIGH
+      precision highp float;
+    #else
+      precision mediump float;
+    #endif
+    uniform vec2  uRes;
+    uniform float uTime;
+    uniform vec2  uMouse;
+    uniform float uHover;
+    uniform vec3  uClick;
+    uniform float uDpr;
+    uniform float uDim;
+
+    const vec3 YEL = vec3(1.0, 0.839, 0.0);   // #FFD600
+    const vec3 RED = vec3(0.812, 0.0, 0.0);   // #CF0000
+    const vec3 IVO = vec3(0.976, 0.961, 0.941); // #F9F5F0
+
+    float hash(vec2 p){ p = fract(p * vec2(123.34, 456.21)); p += dot(p, p + 45.32); return fract(p.x * p.y); }
+    float noise(vec2 p){
+      vec2 i = floor(p), f = fract(p);
+      f = f * f * (3.0 - 2.0 * f);
+      float a = hash(i), b = hash(i + vec2(1.0, 0.0)), c = hash(i + vec2(0.0, 1.0)), d = hash(i + vec2(1.0, 1.0));
+      return mix(mix(a, b, f.x), mix(c, d, f.x), f.y);
+    }
+    float fbm(vec2 p){
+      float v = 0.0, a = 0.5;
+      for (int i = 0; i < 4; i++){ v += a * noise(p); p *= 2.02; a *= 0.5; }
+      return v;
+    }
+  `;
+
+  /* Hero: halftone field. Dots swell with drifting noise and a slow wave,
+     follow the cursor in yellow, and a click sends a red ring outward. */
+  const HERO_FRAG = COMMON + `
+    void main(){
+      float cell = max(9.0 * uDpr, uRes.y / 62.0);
+      vec2 frag = gl_FragCoord.xy;
+      vec2 c = (floor(frag / cell) + 0.5) * cell;
+      vec2 local = frag - c;
+      vec2 uv = c / uRes.y;
+
+      float n = fbm(uv * 2.3 + vec2(uTime * 0.05, -uTime * 0.03));
+      float wave = 0.5 + 0.5 * sin((uv.x * 1.1 - uv.y * 0.9) * 5.5 - uTime * 0.45 + n * 4.0);
+      wave = pow(wave, 2.2);
+
+      float md = length(c - uMouse) / uRes.y;
+      float infl = exp(-md * md * 26.0) * uHover;
+
+      float age = uTime - uClick.z;
+      float cd = length(c - uClick.xy) / uRes.y;
+      float q = (cd - age * 0.55) * 14.0;
+      float ring = exp(-q * q) * exp(-age * 1.1) * step(0.0, age);
+
+      float mask = mix(0.26, 1.0, smoothstep(0.2, 0.8, c.x / uRes.x));
+      float v = clamp((n * 0.62 + wave * 0.38) * mask + infl * 0.9 + ring, 0.0, 1.0);
+
+      float r = cell * 0.5 * pow(v, 1.15) * 1.02;
+      float d = length(local);
+      float dotA = (1.0 - smoothstep(r - 0.75 * uDpr, r + 0.75 * uDpr, d)) * smoothstep(0.03, 0.12, v);
+
+      vec3 col = mix(IVO * 0.55, YEL, smoothstep(0.34, 0.7, v));
+      float redAmt = clamp(ring * 1.5 + smoothstep(0.86, 0.98, wave) * mask * 0.85, 0.0, 1.0);
+      col = mix(col, RED, redAmt);
+
+      gl_FragColor = vec4(col * dotA * uDim, 1.0);
+    }
+  `;
+
+  /* CTA: slow topographic contours on red; yellow contours light up near the cursor. */
+  const CTA_FRAG = COMMON + `
+    void main(){
+      vec2 uv = gl_FragCoord.xy / uRes.y;
+      vec2 m = uMouse / uRes.y;
+      float t = uTime * 0.06;
+      vec2 q = uv * 1.8;
+      float n = fbm(q + vec2(t, -t) + 0.6 * fbm(q * 1.5 - t));
+      float md = length(uv - m) * 2.2;
+      float infl = exp(-md * md) * uHover;
+      n += infl * 0.16;
+
+      float f = fract(n * 9.0);
+      float line = smoothstep(0.455, 0.5, abs(f - 0.5));
+      float idx = floor(n * 9.0 + 0.5);
+      float major = 1.0 - step(0.5, mod(idx, 4.0));
+
+      vec3 col = mix(RED, vec3(0.0), line * 0.3);
+      col = mix(col, YEL, line * major * (0.22 + 0.78 * infl));
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `;
+
+  function createShader(canvas, frag, opts = {}) {
+    const host = opts.host || canvas.parentElement;
+    const gl = canvas.getContext('webgl', { alpha: false, antialias: false, powerPreference: 'high-performance' });
+    if (!gl) { canvas.hidden = true; return; }
+
+    const compile = (type, src) => {
+      const s = gl.createShader(type);
+      gl.shaderSource(s, src); gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) { console.warn(gl.getShaderInfoLog(s)); return null; }
+      return s;
+    };
+    const vs = compile(gl.VERTEX_SHADER, VERT), fs = compile(gl.FRAGMENT_SHADER, frag);
+    if (!vs || !fs) { canvas.hidden = true; return; }
+    const prog = gl.createProgram();
+    gl.attachShader(prog, vs); gl.attachShader(prog, fs); gl.linkProgram(prog);
+    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) { console.warn(gl.getProgramInfoLog(prog)); canvas.hidden = true; return; }
+    gl.useProgram(prog);
+
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, 'p');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    const U = n => gl.getUniformLocation(prog, n);
+    const u = { res: U('uRes'), time: U('uTime'), mouse: U('uMouse'), hover: U('uHover'), click: U('uClick'), dpr: U('uDpr'), dim: U('uDim') };
+
+    const st = { w: 1, h: 1, dpr: 1, mx: 0, my: 0, tx: 0, ty: 0, hover: 0, th: 0, click: [0, 0, -100], raf: 0, ready: false, t0: performance.now() };
+
+    function resize() {
+      st.dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const r = canvas.getBoundingClientRect();
+      st.w = Math.max(1, Math.round(r.width * st.dpr));
+      st.h = Math.max(1, Math.round(r.height * st.dpr));
+      if (canvas.width !== st.w || canvas.height !== st.h) { canvas.width = st.w; canvas.height = st.h; }
+      gl.viewport(0, 0, st.w, st.h);
+      if (!st.ready) { st.mx = st.tx = st.w * 0.72; st.my = st.ty = st.h * 0.45; st.ready = true; }
+    }
+
+    function render(t) {
+      gl.uniform2f(u.res, st.w, st.h);
+      gl.uniform1f(u.time, t);
+      gl.uniform2f(u.mouse, st.mx, st.my);
+      gl.uniform1f(u.hover, st.hover);
+      gl.uniform3f(u.click, st.click[0], st.click[1], st.click[2]);
+      gl.uniform1f(u.dpr, st.dpr);
+      gl.uniform1f(u.dim, st.w / st.dpr < 720 ? 0.6 : 1.0);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+
+    function frame(now) {
+      st.raf = requestAnimationFrame(frame);
+      st.mx += (st.tx - st.mx) * 0.12;
+      st.my += (st.ty - st.my) * 0.12;
+      st.hover += (st.th - st.hover) * 0.06;
+      render((now - st.t0) / 1000);
+    }
+    const start = () => { if (!st.raf && !reduceMotion.matches) st.raf = requestAnimationFrame(frame); };
+    const stop = () => { cancelAnimationFrame(st.raf); st.raf = 0; };
+
+    resize();
+    render(8);
+
+    new ResizeObserver(() => { resize(); if (reduceMotion.matches || !st.raf) render(reduceMotion.matches ? 8 : (performance.now() - st.t0) / 1000); }).observe(canvas);
+    new IntersectionObserver(([en]) => { en.isIntersecting ? start() : stop(); }, { threshold: 0 }).observe(canvas);
+    document.addEventListener('visibilitychange', () => { document.hidden ? stop() : start(); });
+    canvas.addEventListener('webglcontextlost', e => { e.preventDefault(); stop(); canvas.hidden = true; });
+
+    if (!reduceMotion.matches) {
+      host.addEventListener('pointermove', e => {
+        const r = canvas.getBoundingClientRect();
+        st.tx = (e.clientX - r.left) * st.dpr;
+        st.ty = (r.height - (e.clientY - r.top)) * st.dpr;
+        st.th = 1;
+      });
+      host.addEventListener('pointerleave', () => { st.th = 0; });
+      if (opts.clickable) {
+        host.addEventListener('pointerdown', e => {
+          if (e.target.closest('a, button, input, select, textarea')) return;
+          const r = canvas.getBoundingClientRect();
+          st.click = [(e.clientX - r.left) * st.dpr, (r.height - (e.clientY - r.top)) * st.dpr, (performance.now() - st.t0) / 1000];
+        });
+      }
+    }
+  }
+
+  createShader($('#hero-canvas'), HERO_FRAG, { host: $('.hero'), clickable: true });
+  createShader($('#cta-canvas'), CTA_FRAG, { host: $('.cta') });
+
+  /* ---------------------------------------------------------------
+     Client logo rotator: each slot swaps with a blur crossfade,
+     right to left, on a loop (paused off-screen and for reduced motion)
+     --------------------------------------------------------------- */
+  (() => {
+    const rot = $('.rot');
+    if (!rot || reduceMotion.matches) return;
+    const slots = $$('.slot', rot).map(el => ({ imgs: $$('img', el), i: 0 }));
+    const STAGGER = 260, PERIOD = 3800;
+    let timer = 0;
+
+    function step() {
+      slots.slice().reverse().forEach((s, k) => {
+        if (s.imgs.length < 2) return;
+        setTimeout(() => {
+          s.imgs[s.i].classList.remove('is-active');
+          s.i = (s.i + 1) % s.imgs.length;
+          s.imgs[s.i].classList.add('is-active');
+        }, k * STAGGER);
+      });
+    }
+    const start = () => { if (!timer) timer = setInterval(step, PERIOD); };
+    const stop = () => { clearInterval(timer); timer = 0; };
+
+    new IntersectionObserver(([en]) => { en.isIntersecting ? start() : stop(); }, { threshold: 0.25 }).observe(rot);
+    document.addEventListener('visibilitychange', () => { if (document.hidden) stop(); });
+  })();
+
+  /* ---------------------------------------------------------------
+     Enquiry forms (contact section + pop-up)
+     --------------------------------------------------------------- */
+  async function sendEnquiry(form, status) {
+    const d = Object.fromEntries(new FormData(form));
+    if (CONFIG.formEndpoint) {
+      try {
+        const res = await fetch(CONFIG.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) });
+        if (!res.ok) throw new Error(res.status);
+        status.textContent = 'Enquiry sent. We will be in touch soon.';
+        form.reset();
+        return true;
+      } catch {
+        status.textContent = 'Could not send the enquiry. Email us at ' + CONFIG.email + ' instead.';
+        return false;
+      }
+    }
+    const subject = encodeURIComponent('New project enquiry: ' + (d.service || 'General'));
+    const body = encodeURIComponent(
+      'Name: ' + d.name +
+      '\nEmail: ' + d.email +
+      '\nCompany / Brand: ' + (d.company || '-') +
+      '\nService: ' + d.service +
+      '\nTimeline: ' + (d.timeline || '-') +
+      '\nBudget: ' + (d.budget || '-') +
+      '\n\n' + d.message
+    );
+    status.textContent = 'Opening your email app. If nothing opens, write to ' + CONFIG.email + '.';
+    window.location.href = 'mailto:' + CONFIG.email + '?subject=' + subject + '&body=' + body;
+    return true;
+  }
+  $('#contact-form').addEventListener('submit', e => { e.preventDefault(); sendEnquiry(e.target, $('#form-status')); });
+
+  /* ---------------------------------------------------------------
+     Start-a-project pop-up
+     Opens from every [data-popup] button and 2.5s after each page load.
+     Closes with the X button, Escape, or a click on the backdrop.
+     --------------------------------------------------------------- */
+  const pop = $('#start-pop');
+  const popSel = $('#p-service');
+  const popStatus = $('#pop-status');
+
+  function openPop(pick) {
+    if (pop.open) return;
+    if (typeof pop.showModal !== 'function') { location.hash = '#contact'; return; }
+    popStatus.textContent = '';
+    if (pick) {
+      const opt = [...popSel.options].find(o => o.textContent.trim() === pick);
+      if (opt) popSel.value = opt.value || opt.textContent;
+    }
+    pop.showModal();
+  }
+  function closePop() {
+    if (!pop.open || pop.classList.contains('is-closing')) return;
+    if (reduceMotion.matches) { pop.close(); return; }
+    pop.classList.add('is-closing');
+    setTimeout(() => { pop.classList.remove('is-closing'); pop.close(); }, 200);
+  }
+
+  $$('[data-popup]').forEach(a => a.addEventListener('click', e => {
+    e.preventDefault();
+    toggleMobile(false);
+    setMenu(false);
+    openPop(a.dataset.pick);
+  }));
+  $$('[data-pop-close]').forEach(b => b.addEventListener('click', closePop));
+  pop.addEventListener('cancel', e => { e.preventDefault(); closePop(); });          // Escape key
+  pop.addEventListener('click', e => { if (e.target === pop) closePop(); });          // backdrop click
+
+  $('#pop-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const ok = await sendEnquiry(e.target, popStatus);
+    if (ok) setTimeout(closePop, 2200);
+  });
+
+  const autoOpen = () => setTimeout(() => {
+    if (document.querySelector('dialog[open]')) return;
+    const a = document.activeElement;
+    if (a && a.closest && a.closest('#contact-form')) return;   // don't interrupt someone mid-form
+    openPop();
+  }, 2500);
+  if (document.readyState === 'complete') autoOpen(); else window.addEventListener('load', autoOpen, { once: true });
+})();
+</script>
+</body>
+</html>
