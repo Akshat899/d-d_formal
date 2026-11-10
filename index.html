@@ -14,11 +14,14 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Design &amp; Deploy — Digital Design &amp; Development Studio">
 <meta name="twitter:description" content="Branding, UI/UX, web development and digital experiences — from concept to launch.">
-
+<link
+    rel="preload"
+    href="/assets/fonts/bricolage-grotesque.woff2"
+    as="font"
+    type="font/woff2"
+    crossorigin
+>
 <link rel="icon" href="assets/logo.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&family=Newsreader:opsz,wght@6..72,300..700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">
 {
@@ -26,19 +29,19 @@
   "@graph": [
     {
       "@type": "Organization",
-      "@id": "https://designanddeploy.in/#organization",
+      "@id": "https://designandeploy.in/#organization",
       "name": "Design & Deploy",
-      "url": "https://designanddeploy.in/",
-      "email": "hello@designanddeploy.in",
+      "url": "https://designandeploy.in/",
+      "email": "support@designandeploy.in",
       "description": "A digital design and development studio based in Noida, India, helping businesses across Delhi-NCR, India and foreign build stronger brands and better digital experiences.",
       "areaServed": "India"
     },
     {
       "@type": "WebSite",
-      "@id": "https://designanddeploy.in/#website",
-      "url": "https://designanddeploy.in/",
+      "@id": "https://designandeploy.in/#website",
+      "url": "https://designandeploy.in/",
       "name": "Design & Deploy",
-      "publisher": { "@id": "https://designanddeploy.in/#organization" }
+      "publisher": { "@id": "https://designandeploy.in/#organization" }
     },
     {
       "@type": "FAQPage",
@@ -65,7 +68,23 @@
    Palette: Yellow #FFD600, Red #CF0000, Ivory #F9F5F0, Black #000000
    No blue, cyan, or purple anywhere.
    ========================================================================== */
+@font-face {
+    font-family: "Bricolage Grotesque";
+    src: url("/assets/fonts/BricolageGrotesque.woff2")
+         format("woff2");
+    font-style: normal;
+    font-weight: 200 800;
+    font-display: swap;
+}
 
+@font-face {
+    font-family: "Newsreader";
+    src: url("/assets/fonts/Newsreader\ .woff2")
+         format("woff2");
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+}
 :root {
   --y: #FFD600;
   --r: #CF0000;
@@ -183,7 +202,9 @@ h1, h2, h3 {
 }
 .logo { display: inline-flex; align-items: center; margin-right: auto; text-decoration: none; }
 .logo img { height: 34px; width: auto; }
-
+.logo_footer { display: inline-flex; align-items: center; margin-right: auto; text-decoration: none; }
+.logo_footer img { height: 60px; width: auto; }
+.logo_footer img:hover { height: 70px;}
 .nav__list { display: flex; align-items: center; gap: 2px; }
 .nav__list > li { position: relative; }
 .nav__link, .nav__btn {
@@ -288,7 +309,376 @@ h1, h2, h3 {
 
 @keyframes rise { to { transform: none; } }
 @keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+/* ---------- SECTION BASE ---------- */
 
+.dd-bundle {
+  --dd-yellow: #FFD600;
+  --dd-red: #CF0000;
+  --dd-ivory: #F9F5F0;
+  --dd-black: #000000;
+
+  background: var(--dd-yellow);
+  color: var(--dd-black);
+  padding: clamp(76px, 10vw, 140px) clamp(20px, 4vw, 56px);
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+}
+
+.dd-bundle * {
+  box-sizing: border-box;
+}
+
+.dd-bundle__inner {
+  max-width: 1440px;
+  margin: auto;
+}
+
+/* ---------- HEADER ---------- */
+
+.dd-bundle__top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 65px;
+}
+
+.dd-bundle__eyebrow {
+  font: 700 0.85rem/1.2 "Bricolage Grotesque",
+        Arial, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dd-bundle__eyebrow::before {
+  content: "";
+  width: 30px;
+  height: 3px;
+  background: var(--dd-red);
+}
+
+.dd-bundle__heading {
+  font-family: "Bricolage Grotesque", Arial, sans-serif;
+  font-size: clamp(3rem, 7.5vw, 7.5rem);
+  font-weight: 800;
+  line-height: .91;
+  letter-spacing: -.065em;
+  max-width: 850px;
+}
+
+.dd-bundle__heading span {
+  color: var(--dd-red);
+}
+
+.dd-bundle__intro {
+  max-width: 310px;
+  font: 400 1.15rem/1.5 "Newsreader", Georgia, serif;
+  margin-bottom: 5px;
+}
+
+/* ---------- FILTER BAR ---------- */
+
+.dd-bundle__filters {
+  display: flex;
+  gap: 9px;
+  flex-wrap: wrap;
+  margin-bottom: 35px;
+}
+
+.dd-bundle__filter {
+  border: 1.5px solid var(--dd-black);
+  background: transparent;
+  color: var(--dd-black);
+  border-radius: 100px;
+  padding: 11px 19px;
+  font: 700 .85rem "Bricolage Grotesque", Arial, sans-serif;
+  cursor: pointer;
+  transition: .2s ease;
+}
+
+.dd-bundle__filter:hover,
+.dd-bundle__filter.is-active {
+  background: var(--dd-black);
+  color: var(--dd-yellow);
+}
+
+/* ---------- GRID ---------- */
+
+.dd-bundle__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+/* ---------- CARD ---------- */
+
+.dd-bundle__card {
+  background: var(--dd-ivory);
+  color: var(--dd-black);
+  border: 1.5px solid var(--dd-black);
+  padding: clamp(23px, 2.5vw, 35px);
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition:
+    transform .3s cubic-bezier(.2,.8,.2,1),
+    box-shadow .3s ease;
+}
+
+@media (hover:hover) {
+  .dd-bundle__card:hover {
+    transform: translateY(-7px);
+    box-shadow: 7px 7px 0 var(--dd-black);
+  }
+}
+
+.dd-bundle__card.is-featured {
+  background: var(--dd-black);
+  color: var(--dd-ivory);
+}
+
+.dd-bundle__card.is-featured .dd-bundle__tag {
+  background: var(--dd-yellow);
+  color: var(--dd-black);
+}
+
+.dd-bundle__card.is-featured .dd-bundle__description,
+.dd-bundle__card.is-featured .dd-bundle__includes,
+.dd-bundle__card.is-featured .dd-bundle__meta {
+  color: rgba(249,245,240,.75);
+}
+
+.dd-bundle__card.is-featured .dd-bundle__list li {
+  border-color: rgba(249,245,240,.2);
+}
+
+.dd-bundle__card.is-featured .dd-bundle__price {
+  color: var(--dd-yellow);
+}
+
+.dd-bundle__card.is-featured .dd-bundle__book {
+  background: var(--dd-yellow);
+  color: var(--dd-black);
+  border-color: var(--dd-yellow);
+}
+
+.dd-bundle__card.is-featured .dd-bundle__book:hover {
+  background: var(--dd-ivory);
+  border-color: var(--dd-ivory);
+}
+
+.dd-bundle__card[hidden] {
+  display: none;
+}
+
+/* ---------- CARD HEADER ---------- */
+
+.dd-bundle__card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.dd-bundle__number {
+  font: 700 .85rem "Bricolage Grotesque", Arial, sans-serif;
+  opacity: .55;
+}
+
+.dd-bundle__tag {
+  background: var(--dd-red);
+  color: white;
+  padding: 6px 11px;
+  font: 700 .7rem "Bricolage Grotesque", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.dd-bundle__title {
+  font: 800 clamp(1.8rem, 2.5vw, 2.5rem)/.98
+        "Bricolage Grotesque", Arial, sans-serif;
+  letter-spacing: -.045em;
+  margin-bottom: 14px;
+}
+
+.dd-bundle__description {
+  font: 400 1.05rem/1.5 "Newsreader", Georgia, serif;
+  opacity: .8;
+  min-height: 50px;
+}
+
+/* ---------- PRICE ---------- */
+
+.dd-bundle__price-area {
+  border-top: 1px solid rgba(0,0,0,.25);
+  border-bottom: 1px solid rgba(0,0,0,.25);
+  padding: 20px 0;
+  margin: 25px 0;
+}
+
+.dd-bundle__card.is-featured .dd-bundle__price-area {
+  border-color: rgba(255,255,255,.25);
+}
+
+.dd-bundle__price-label {
+  display: block;
+  font: 600 .75rem "Bricolage Grotesque", Arial, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  opacity: .65;
+  margin-bottom: 5px;
+}
+
+.dd-bundle__price {
+  font: 800 clamp(2rem, 3vw, 3rem)/1
+        "Bricolage Grotesque", Arial, sans-serif;
+  letter-spacing: -.055em;
+}
+
+.dd-bundle__price small {
+  font-size: .85rem;
+  font-weight: 600;
+  letter-spacing: 0;
+}
+
+/* ---------- FEATURES ---------- */
+
+.dd-bundle__includes {
+  font: 700 .85rem "Bricolage Grotesque", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  margin-bottom: 13px;
+}
+
+.dd-bundle__list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 30px;
+  flex: 1;
+}
+
+.dd-bundle__list li {
+  font: 400 1rem/1.4 "Newsreader", Georgia, serif;
+  padding: 10px 0 10px 20px;
+  border-bottom: 1px solid rgba(0,0,0,.13);
+  position: relative;
+}
+
+.dd-bundle__list li::before {
+  content: "+";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  color: var(--dd-red);
+  font: 800 1rem "Bricolage Grotesque", Arial, sans-serif;
+}
+
+/* ---------- CTA ---------- */
+
+.dd-bundle__book {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 100%;
+  min-height: 55px;
+  padding: 0 19px;
+  border: 1.5px solid var(--dd-black);
+  background: var(--dd-black);
+  color: var(--dd-ivory);
+  font: 700 .95rem "Bricolage Grotesque", Arial, sans-serif;
+  cursor: pointer;
+  transition: .25s ease;
+}
+
+.dd-bundle__book:hover {
+  background: var(--dd-red);
+  border-color: var(--dd-red);
+  color: white;
+}
+
+.dd-bundle__arrow {
+  font-size: 1.3rem;
+  transition: transform .2s;
+}
+
+.dd-bundle__book:hover .dd-bundle__arrow {
+  transform: translateX(5px);
+}
+
+/* ---------- FOOTER NOTE ---------- */
+
+.dd-bundle__foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid rgba(0,0,0,.3);
+  margin-top: 55px;
+  padding-top: 22px;
+}
+
+.dd-bundle__foot p {
+  font: 400 1rem/1.5 "Newsreader", Georgia, serif;
+}
+
+.dd-bundle__foot a {
+  color: var(--dd-black);
+  font: 700 .9rem "Bricolage Grotesque", Arial, sans-serif;
+  text-underline-offset: 5px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media(max-width:1050px) {
+  .dd-bundle__grid {
+    grid-template-columns: repeat(2, minmax(0,1fr));
+  }
+}
+
+@media(max-width:700px) {
+  .dd-bundle__top {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  .dd-bundle__intro {
+    margin-top: 22px;
+  }
+
+  .dd-bundle__grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .dd-bundle__description {
+    min-height: 0;
+  }
+
+  .dd-bundle__card {
+    padding: 26px;
+  }
+
+  .dd-bundle__foot {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media(prefers-reduced-motion:reduce) {
+  .dd-bundle *,
+  .dd-bundle *::before,
+  .dd-bundle *::after {
+    transition: none !important;
+  }
+}
 /* ==========================================================================
    Shared layout
    ========================================================================== */
@@ -474,7 +864,86 @@ h1, h2, h3 {
 .details dt { font: 600 .95rem var(--display); font-stretch: 90%; color: var(--r); }
 .details dd { font-size: 1.2rem; }
 .details a { text-decoration-thickness: 2px; text-underline-offset: 5px; }
+/* Mobile-only social links inside Contact */
+.contact__socials {
+  display: none;
+}
 
+.contact__social-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.contact__social-head span:first-child {
+  font: 700 1.25rem/1 var(--display);
+  font-stretch: 88%;
+  letter-spacing: -.02em;
+}
+
+.contact__social-head span:last-child {
+  font: 600 .75rem/1 var(--display);
+  font-stretch: 90%;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--r);
+}
+
+.contact__social-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.contact__social-grid a {
+  min-width: 0;
+  min-height: 52px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+
+  color: var(--k);
+  text-decoration: none;
+
+  border: 1px solid rgba(0,0,0,.18);
+  border-radius: 12px;
+
+  font: 600 .9rem/1 var(--display);
+  font-stretch: 90%;
+
+  transition:
+    background-color .2s ease,
+    border-color .2s ease,
+    transform .2s ease;
+}
+
+.contact__social-grid a:hover {
+  background: var(--y);
+  border-color: var(--k);
+  transform: translateY(-2px);
+}
+
+.contact__social-icon {
+  flex: none;
+  width: 30px;
+  height: 30px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+  background: var(--k);
+  color: var(--iv);
+}
+
+.contact__social-icon img {
+  width: 17px;
+  height: 17px;
+  display: block;
+}
 .form { display: grid; gap: 28px; }
 .form__row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
 @media (max-width: 600px) { .form__row { grid-template-columns: 1fr; } }
@@ -616,7 +1085,6 @@ body:has(dialog[open]) { overflow: hidden; }
 .pop .field textarea { min-height: 96px; }
 .pop__alt { font: 600 1rem var(--display); font-stretch: 92%; }
 .pop__alt a { text-decoration-color: var(--r); text-decoration-thickness: 2px; text-underline-offset: 5px; }
-
 @media (max-width: 760px) {
   .pop { width: calc(100% - 24px); }
   .pop__card { grid-template-columns: 1fr; max-height: calc(100dvh - 24px); border-radius: 22px; }
@@ -627,7 +1095,6 @@ body:has(dialog[open]) { overflow: hidden; }
   .pop__main { padding: 24px; }
   .pop__close { top: 12px; right: 12px; }
 }
-
 /* ==========================================================================
    Floating WhatsApp button
    (set --wa-bg to #25D366 for the classic green)
@@ -678,6 +1145,84 @@ body:has(dialog[open]) { overflow: hidden; }
   .work__item:hover .browser__url { background: var(--y); }
 }
 
+/* ==========================================================================
+   Work grid: web and design cards alternate; Meta ad slideshow
+   ========================================================================== */
+.work__item--design .browser__screen img { object-position: center; }
+@media (max-width: 1000px) { .work__item { order: var(--o, 0); } }   /* 2 columns and 1 column: web, design, web, design… */
+
+.gal {
+  padding: 0; border: 0; background: transparent; color: var(--k);
+  width: min(1040px, calc(100% - 32px)); max-width: none; max-height: none; overflow: visible;
+  position: fixed; inset: 0; margin: auto; height: fit-content;
+  --focus: var(--r);
+}
+.gal::backdrop { background: rgba(0,0,0,.78); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); }
+.gal[open]::backdrop { animation: fade .3s ease both; }
+.gal__card {
+  display: flex; flex-direction: column; overflow: hidden; outline: none;
+  max-height: calc(100dvh - 32px);
+  background: var(--iv); border: 2px solid var(--k); border-radius: 28px;
+}
+.gal[open] .gal__card { animation: pop-in .34s cubic-bezier(.2,.8,.2,1) both; }
+.gal.is-closing .gal__card { animation: pop-out .2s ease both; }
+.gal.is-closing::backdrop { animation: fade-out .2s ease both; }
+
+.gal__stage {
+  position: relative; flex: none; overflow: hidden; background: var(--k);
+  height: clamp(220px, calc(100dvh - 270px), 720px);
+  touch-action: pan-y; user-select: none; -webkit-user-select: none; cursor: grab;
+}
+.gal__stage.is-dragging { cursor: grabbing; }
+.gal__stage::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .35;
+  background-image: radial-gradient(circle, var(--y) 1.6px, transparent 2px); background-size: 20px 20px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, transparent 38%, #000 100%); mask-image: radial-gradient(ellipse at 50% 50%, transparent 38%, #000 100%);
+}
+.gal__track { position: absolute; inset: 0; display: flex; will-change: transform; transition: transform .45s cubic-bezier(.2,.8,.2,1); }
+.gal__track.is-dragging { transition: none; }
+.gal__slide { flex: 0 0 100%; min-width: 0; height: 100%; display: grid; grid-template: minmax(0, 1fr) / minmax(0, 1fr); place-items: center; padding: clamp(14px, 2.6vw, 34px); }
+.gal__slide img { max-width: 100%; max-height: 100%; width: auto; height: auto; object-fit: contain; border-radius: 6px; pointer-events: none; -webkit-user-drag: none; user-select: none; }
+
+.gal__arrow {
+  position: absolute; top: 50%; z-index: 2; translate: 0 -50%;
+  width: 54px; height: 54px; border-radius: 50%; border: 2px solid var(--k);
+  background: var(--y); color: var(--k); box-shadow: 0 0 0 2px var(--iv);
+  display: none; place-items: center; cursor: pointer;
+  transition: transform .2s ease, background-color .2s ease, opacity .2s ease;
+}
+.gal__arrow svg { width: 22px; height: 22px; }
+.gal__arrow--prev { left: 16px; }
+.gal__arrow--next { right: 16px; }
+.gal__arrow:hover:not(:disabled) { background: var(--iv); transform: scale(1.08); }
+.gal__arrow:disabled { opacity: .3; cursor: not-allowed; }
+@media (hover: hover) and (pointer: fine) { .gal__arrow { display: grid; } .gal__hint { display: none; } }
+.gal.is-single .gal__arrow, .gal.is-single .gal__dots, .gal.is-single .gal__hint { display: none; }
+
+.gal__bar { flex: none; display: flex; align-items: flex-end; justify-content: space-between; gap: 18px 32px; padding: clamp(16px, 2.4vw, 24px) clamp(20px, 3vw, 32px); border-top: 2px solid var(--k); }
+.gal__meta { min-width: 0; display: grid; gap: 6px; justify-items: start; }
+.gal__kind { font: 600 .95rem var(--display); font-stretch: 90%; color: var(--r); }
+.gal__meta h2 { font-size: clamp(1.5rem, 2.6vw, 2.2rem); }
+.gal__meta .tags { margin-top: 4px; }
+.gal__nav { flex: none; display: grid; justify-items: end; gap: 10px; }
+.gal__count { font: 800 1.4rem/1 var(--display); font-stretch: 80%; letter-spacing: -.02em; }
+.gal__dots { display: flex; gap: 6px; }
+.gal__dot { position: relative; width: 28px; height: 6px; padding: 0; border: 0; border-radius: 99px; background: rgba(0,0,0,.2); cursor: pointer; transition: background-color .25s ease; }
+.gal__dot::after { content: ""; position: absolute; inset: -12px -2px; }
+.gal__dot[aria-current="true"] { background: var(--r); }
+.gal__hint { font: 600 .85rem var(--display); font-stretch: 90%; color: rgba(0,0,0,.65); }
+
+@media (max-width: 760px) {
+  .gal { width: calc(100% - 24px); }
+  .gal__card { max-height: calc(100dvh - 24px); border-radius: 22px; }
+  .gal__stage { height: clamp(220px, calc(100dvh - 330px), 560px); }
+  .gal__bar { flex-direction: column; align-items: stretch; gap: 14px; }
+  .gal__nav { justify-items: start; grid-template-columns: auto 1fr; align-items: center; gap: 6px 16px; }
+  .gal__dots { justify-content: flex-end; }
+  .gal__hint { grid-column: 1 / -1; }
+  .gal__dot { width: 22px; }
+}
+
 /* services accordion: collapse the other items instantly when jumping to one from the menu */
 .svc.is-instant, .svc.is-instant .svc__panel { transition: none; }
 .svc { scroll-margin-top: 8px; }
@@ -695,7 +1240,264 @@ body:has(dialog[open]) { overflow: hidden; }
   .rot { row-gap: 28px; }
   .slot img { position: static; opacity: 1; visibility: visible; filter: none; margin: auto; max-height: 64px; max-width: 78%; }
   .pop[open] .pop__card, .pop[open]::backdrop, .pop.is-closing .pop__card, .pop.is-closing::backdrop { animation: none; }
+  .gal[open] .gal__card, .gal[open]::backdrop, .gal.is-closing .gal__card, .gal.is-closing::backdrop { animation: none; }
   .pop__close:hover, .wa:hover { transform: none; }
+}
+/* ==========================================================================
+   Social side panel (expands from a tab on the right edge) + footer legal links
+   ========================================================================== */
+.dock {
+  --dock-w: min(300px, calc(100vw - 92px));
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 42;
+
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: stretch;
+
+  height: min(410px, calc(100dvh - 120px));
+
+  background: var(--iv);
+  color: var(--k);
+  border: 2px solid var(--k);
+  border-right: 0;
+  border-radius: 22px 0 0 22px;
+  overflow: hidden;
+
+  --focus: var(--r);
+}
+.dock__toggle {
+  flex: none;
+  width: 50px;
+  height: 100%;
+  padding: 14px 0;
+  border: 0;
+
+  background: var(--y);
+  color: var(--k);
+  cursor: pointer;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+
+  transition: background-color .25s ease, color .25s ease;
+}
+.dock__toggle:hover { background: var(--k); color: var(--y); }
+.dock__toggle:focus-visible { outline: 3px solid var(--r); outline-offset: -6px; }
+.dock.is-open .dock__toggle { border-left: 2px solid var(--k); }
+.dock__icon { position: relative; flex: none; width: 20px; height: 20px; transition: transform .5s cubic-bezier(.2,.8,.2,1); }
+.dock__icon::before, .dock__icon::after { content: ""; position: absolute; left: 0; right: 0; top: 8.5px; height: 3px; background: currentColor; }
+.dock__icon::after { transform: rotate(90deg); }
+.dock.is-open .dock__icon { transform: rotate(135deg); }                       /* + turns into × */
+.dock__label { writing-mode: vertical-rl; transform: rotate(180deg); font: 700 1rem/1 var(--display); font-stretch: 90%; letter-spacing: .02em; white-space: nowrap; }
+
+.dock__panel { width: 0; overflow: hidden; transition: width .55s cubic-bezier(.2,.8,.2,1); }
+.dock.is-open .dock__panel { width: var(--dock-w); }
+.dock__inner {
+  width: var(--dock-w);
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+
+  padding: 18px 20px;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: 10px;
+}
+.dock__title { font: 800 1.35rem/1.05 var(--display); font-stretch: 80%; letter-spacing: -.02em; }
+.dock__list {
+  display: grid;
+  grid-template-rows: repeat(8, minmax(0, 1fr));
+  gap: 3px;
+  min-height: 0;
+  overflow: hidden;
+}
+.dock__list a {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px 10px 6px 8px;
+  border-radius: 14px;
+
+  font: 600 1.02rem/1 var(--display);
+  font-stretch: 92%;
+  text-decoration: none;
+
+  transition: background-color .2s ease;
+}
+.dock__list a:hover { background: var(--y); }
+.dock__list a:focus-visible { outline-offset: -3px; }
+.dock__ico {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--k);
+  display: grid;
+  place-items: center;
+  transition: background-color .2s ease;
+}
+.dock__ico img { width: 17px; height: 17px; }
+.dock__list a:hover .dock__ico { background: var(--r); }
+.dock__foot {
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0,0,0,.2);
+  font-size: .92rem;
+  line-height: 1.25;
+  min-height: 0;
+}
+
+.dock__foot a {
+  text-decoration: underline;
+  text-decoration-color: var(--r);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  overflow-wrap: anywhere;
+}
+
+
+/* the panel's contents slide in one after another once it has opened */
+.dock__title, .dock__list li, .dock__foot { opacity: 0; transform: translateX(18px); transition: opacity .3s ease, transform .4s cubic-bezier(.2,.8,.2,1); }
+.dock.is-open .dock__title, .dock.is-open .dock__list li, .dock.is-open .dock__foot { opacity: 1; transform: none; transition-delay: calc(150ms + var(--i, 0) * 50ms); }
+@media (max-width: 760px) {
+  /* Desktop social dock becomes unavailable on mobile */
+  .dock {
+    display: none;
+  }
+
+  /* Social links move into the Contact section */
+  .contact__socials {
+    display: block;
+    margin-top: 38px;
+    padding-top: 22px;
+    border-top: 1px solid var(--rule);
+  }
+}
+
+@media (max-width: 480px) {
+  .contact__social-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .contact__social-grid a {
+    min-height: 50px;
+    padding: 8px;
+  }
+
+  .contact__social-icon {
+    width: 28px;
+    height: 28px;
+  }
+
+  .contact__social-icon img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+/* Footer: Terms and Privacy in the bottom-right corner.
+   The extra bottom space keeps them clear of the floating WhatsApp button. */
+.footer { padding-bottom: 100px; }
+.footer__base { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; }
+.footer__legal { display: flex; gap: 8px 24px; margin-left: auto; }
+@media (max-width: 560px) { .footer { padding-bottom: 92px; } }
+/* =========================================================
+   MOBILE / LARGE-PHONE OVERFLOW FIX
+   Prevents horizontal content clipping on wider Android phones
+   ========================================================= */
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main,
+section,
+.band,
+.wrap {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.split,
+.split__a,
+.split__b,
+.section-head,
+.section-head > *,
+.svc,
+.svc__body,
+.svc__text,
+.svc__list,
+.prose,
+.points,
+.work,
+.work__item,
+.rows,
+.rows__item,
+.process,
+.audience,
+.people {
+  min-width: 0;
+  max-width: 100%;
+}
+
+/* Specifically protect the two-column intro layout
+   when it collapses to one column */
+@media (max-width: 900px) {
+  .split {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .split__a,
+  .split__b {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .prose {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .prose p,
+  .lead {
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+}
+
+/* Extra protection for large phones */
+@media (min-width: 521px) and (max-width: 960px) {
+  .band {
+    overflow-x: hidden;
+  }
+
+  .wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .split__a,
+  .split__b {
+    grid-column: 1 / -1;
+  }
 }
 </style>
 </head>
@@ -717,12 +1519,16 @@ body:has(dialog[open]) { overflow: hidden; }
         <li class="has-menu" id="services-menu">
           <button class="nav__btn" type="button" aria-expanded="false" aria-controls="services-list">Services</button>
           <div class="menu" id="services-list">
-            <a href="#svc-web" data-service="web">Website Design &amp; Development</a>
-            <a href="#svc-uiux" data-service="uiux">UI/UX Design</a>
-            <a href="#svc-brand" data-service="brand">Branding &amp; Graphic Design</a>
-            <a href="#svc-store" data-service="store">E-Commerce Development</a>
-            <a href="#svc-redesign" data-service="redesign">Website Redesign</a>
-            <a href="#svc-deploy" data-service="deploy">Deployment &amp; Optimization</a>
+            <a href="services/website-design-development.html" data-service="web">Website Design &amp; Development</a>
+            <a href="services/meta-ads-creative-design.html" data-service="web">Meta Ads Creative &amp; Design</a>
+            <a href="services/landing-page-design-development.html" data-service="web">Landing Page Design &amp; Development</a>
+            <a href="services/ui-ux-design.html" data-service="uiux">UI/UX Design</a>
+            <a href="services/branding-graphic-design.html" data-service="brand">Branding &amp; Graphic Design</a>
+            <a href="services/ecommerce-development.html" data-service="store">E-Commerce Development</a>
+            <a href="services/crm-development-automation.html" data-service="web">CRM Development &amp; Automation</a>
+            <a href="services/website-redesign.html" data-service="redesign">Website Redesign</a>
+            <a href="services/seo-services-noida.html" data-service="web">SEO Optimisation Services</a>
+            <a href="services/website-deployment-optimization.html" data-service="deploy">Deployment &amp; Optimization</a>
           </div>
         </li>
         <li><a class="nav__link" href="#work">Our Work</a></li>
@@ -739,12 +1545,16 @@ body:has(dialog[open]) { overflow: hidden; }
     <a href="#top">Home</a>
     <a href="#services">Services</a>
     <div class="sub">
-      <a href="#svc-web" data-service="web">Website Design &amp; Development</a>
-      <a href="#svc-uiux" data-service="uiux">UI/UX Design</a>
-      <a href="#svc-brand" data-service="brand">Branding &amp; Graphic Design</a>
-      <a href="#svc-store" data-service="store">E-Commerce Development</a>
-      <a href="#svc-redesign" data-service="redesign">Website Redesign</a>
-      <a href="#svc-deploy" data-service="deploy">Deployment &amp; Optimization</a>
+            <a href="services/website-design-development.html" data-service="web">Website Design &amp; Development</a>
+            <a href="services/meta-ads-creative-design.html" data-service="web">Meta Ads Creative &amp; Design</a>
+            <a href="services/landing-page-design-development.html" data-service="web">Landing Page Design &amp; Development</a>
+            <a href="services/ui-ux-design.html" data-service="uiux">UI/UX Design</a>
+            <a href="services/branding-graphic-design.html" data-service="brand">Branding &amp; Graphic Design</a>
+            <a href="services/ecommerce-development.html" data-service="store">E-Commerce Development</a>
+            <a href="services/crm-development-automation.html" data-service="web">CRM Development &amp; Automation</a>
+            <a href="services/website-redesign.html" data-service="redesign">Website Redesign</a>
+            <a href="services/seo-services-noida.html" data-service="web">SEO Optimisation Services</a>
+            <a href="services/website-deployment-optimization.html" data-service="deploy">Deployment &amp; Optimization</a>
     </div>
     <a href="#work">Our Work</a>
     <a href="#about">About</a>
@@ -760,8 +1570,8 @@ body:has(dialog[open]) { overflow: hidden; }
   <canvas class="hero__canvas" id="hero-canvas" aria-hidden="true"></canvas>
   <div class="hero__in">
     <h1 id="hero-title">
-      <span class="line"><span style="--i:0">We Design Bold.</span></span>
-      <span class="line"><span style="--i:1">We Deploy Fast.</span></span>
+      <span class="line"><span style="--i:0">We Design <b>Bold</b></span></span>
+      <span class="line"><span style="--i:1">We Deploy <i>Fast</i></span></span>
     </h1>
     <p class="hero__sub">Design &amp; Deploy is a digital design and development studio creating brands, websites and digital experiences that move businesses forward.</p>
     <div class="hero__cta">
@@ -769,7 +1579,91 @@ body:has(dialog[open]) { overflow: hidden; }
       <a class="btn btn--ghost" href="#work">View Our Work</a>
     </div>
   </div>
-  <p class="hero__note">Studio based in Noida, India.<br>Click the field to send a pulse.</p>
+  <p class="hero__note">Click the field to send a pulse.</p>
+</section>
+<!-- ================= SECTION HTML ================= -->
+
+<section class="dd-bundle" id="service-bundles">
+
+  <div class="dd-bundle__inner">
+
+    <div class="dd-bundle__top">
+
+      <div>
+        <p class="dd-bundle__eyebrow">
+          The Design & Deploy Packages
+        </p>
+
+        <h2 class="dd-bundle__heading">
+          More than a service.<br>
+          <span>A complete solution.</span>
+        </h2>
+      </div>
+
+      <p class="dd-bundle__intro">
+        From building your identity to launching your digital
+        presence. Get design and development working together,
+        without managing multiple teams.
+      </p>
+
+    </div>
+
+
+    <!-- FILTERS -->
+
+    <div class="dd-bundle__filters"
+         aria-label="Filter service bundles">
+
+      <button class="dd-bundle__filter is-active"
+              type="button" data-filter="all"
+              aria-pressed="true">
+        All bundles
+      </button>
+
+      <button class="dd-bundle__filter"
+              type="button" data-filter="brand"
+              aria-pressed="false">
+        Branding
+      </button>
+
+      <button class="dd-bundle__filter"
+              type="button" data-filter="web"
+              aria-pressed="false">
+        Web development
+      </button>
+
+      <button class="dd-bundle__filter"
+              type="button" data-filter="growth"
+              aria-pressed="false">
+        Growth & Marketing
+      </button>
+
+    </div>
+
+
+    <!-- CARDS ARE GENERATED BY JAVASCRIPT -->
+
+    <div class="dd-bundle__grid"
+         id="dd-bundle-grid"
+         aria-live="polite">
+    </div>
+
+
+    <div class="dd-bundle__foot">
+
+      <p>
+        Every business is different. Need something beyond
+        these bundles? Let's build a custom solution.
+      </p>
+
+      <a href="#contact" data-popup>
+        Discuss a custom project →
+      </a>
+
+    </div>
+
+  </div>
+
 </section>
 
 <!-- ======================= INTRO ======================= -->
@@ -820,11 +1714,62 @@ body:has(dialog[open]) { overflow: hidden; }
                 <li>Custom website design</li><li>Responsive web development</li><li>Business websites</li><li>Corporate websites</li><li>Landing pages</li><li>Website redesign</li><li>WordPress development</li><li>Headless WordPress</li><li>Custom front-end development</li><li>Website maintenance</li>
               </ul>
             </div>
-            <a class="btn btn--ink" href="#contact" data-pick="Website design and development">Explore Web Development →</a>
+            <a class="btn btn--ink" href="services/website-design-development.html" data-pick="Website design and development">Explore Web Development →</a>
           </div></div>
         </div>
       </div>
-
+      <div class="svc" id="svc-meta">
+        <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-meta-p"><span>Meta Ads Creative &amp; Design</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
+        <div class="svc__panel" id="svc-meta-p" role="region" aria-label="Meta Ads Creative and Design">
+          <div class="svc__clip"><div class="svc__body">
+            <div class="svc__text">
+              <p class="svc__lead">Ads designed to stop the scroll and drive action.</p>
+              <p>We create high-impact ad creatives for Facebook and Instagram that communicate your offer clearly, strengthen your brand and give your campaigns the visual edge they need.</p>
+              <p>From static graphics and carousel ads to promotional campaigns and conversion-focused creative, every design is built around your audience, offer and campaign objective.</p>
+            </div>
+            <div class="svc__list">
+              <p class="svc__ltitle">Services include</p>
+              <ul>
+                <li>Facebook ad creatives</li>
+                <li>Instagram ad creatives</li>
+                <li>Static ad designs</li>
+                <li>Carousel ad designs</li>
+                <li>Promotional campaign creatives</li>
+                <li>Lead generation ad creatives</li>
+                <li>Product & service advertisements</li>
+                <li>UGC (User-Generated Content) Campaigns</li>
+              </ul>
+            </div>
+            <a class="btn btn--ink" href="services/meta-ads-creative-design.html" data-pick="Meta Ads Creative & Design">Explore Meta Ads →</a>
+          </div></div>
+        </div>
+      </div>
+      <div class="svc" id="svc-lp">
+        <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-lp-p"><span>Landing Page Design &amp; Development</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
+        <div class="svc__panel" id="svc-lp-p" role="region" aria-label="Landing Page Design and Development">
+          <div class="svc__clip"><div class="svc__body">
+            <div class="svc__text">
+              <p class="svc__lead">Landing pages built to turn attention into action.</p>
+              <p>We design and develop focused landing pages that give your campaigns somewhere worth sending people. Every section is structured around your offer, your audience and the action you want visitors to take.</p>
+              <p>From lead generation and paid advertising campaigns to product launches and service businesses, we build fast, responsive landing pages designed for clarity and conversion.</p>
+            </div>
+            <div class="svc__list">
+              <p class="svc__ltitle">Services include</p>
+              <ul>
+                <li>Lead generation landing pages</li>
+                <li>Meta Ads landing pages</li>
+                <li>Google Ads landing pages</li>
+                <li>Product landing pages</li>
+                <li>Service landing pages</li>
+                <li>Conversion-focused UI/UX</li>
+                <li>Mobile-responsive development</li>
+                <li>Landing page optimisation</li>
+              </ul>
+            </div>
+            <a class="btn btn--ink" href="services/landing-page-design-development.html" data-pick="Landing Page Design & Development">Explore Landing Pages  →</a>
+          </div></div>
+        </div>
+      </div>
       <div class="svc" id="svc-uiux">
         <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-uiux-p"><span>UI/UX Design</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
         <div class="svc__panel" id="svc-uiux-p" role="region" aria-label="UI/UX Design">
@@ -840,7 +1785,7 @@ body:has(dialog[open]) { overflow: hidden; }
                 <li>UX research</li><li>User flows</li><li>Wireframing</li><li>Information architecture</li><li>UI design</li><li>Design systems</li><li>Responsive interface design</li><li>Prototyping</li><li>UX audits</li>
               </ul>
             </div>
-            <a class="btn btn--ink" href="#contact" data-pick="UI/UX design">Explore UI/UX →</a>
+            <a class="btn btn--ink" href="services/ui-ux-design.html" data-pick="UI/UX design">Explore UI/UX →</a>
           </div></div>
         </div>
       </div>
@@ -860,7 +1805,7 @@ body:has(dialog[open]) { overflow: hidden; }
                 <li>Logo design</li><li>Brand identity</li><li>Visual identity systems</li><li>Brand guidelines</li><li>Marketing creatives</li><li>Social media design</li><li>Campaign design</li><li>Presentation design</li><li>Print design</li>
               </ul>
             </div>
-            <a class="btn btn--ink" href="#contact" data-pick="Branding and graphic design">Explore Branding →</a>
+            <a class="btn btn--ink" href="services/branding-graphic-design.html" data-pick="Branding and graphic design">Explore Branding →</a>
           </div></div>
         </div>
       </div>
@@ -880,11 +1825,36 @@ body:has(dialog[open]) { overflow: hidden; }
                 <li>WooCommerce development</li><li>E-commerce website design</li><li>Product page design</li><li>Shopping cart implementation</li><li>Checkout optimization</li><li>Payment gateway integration</li><li>Product catalogues</li><li>Responsive e-commerce experiences</li>
               </ul>
             </div>
-            <a class="btn btn--ink" href="#contact" data-pick="E-commerce development">Build Your Store →</a>
+            <a class="btn btn--ink" href="services/e-commerce-development.html" data-pick="E-commerce development">Build Your Store →</a>
           </div></div>
         </div>
       </div>
-
+      <div class="svc" id="svc-crm">
+        <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-crm-p"><span>CRM Development &amp; Automation</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
+        <div class="svc__panel" id="svc-crm-p" role="region" aria-label="CRM Development & Automation">
+          <div class="svc__clip"><div class="svc__body">
+            <div class="svc__text">
+              <p class="svc__lead">Better systems for managing leads, customers and growth.</p>
+              <p>We build CRM solutions that bring your customer data, sales process and day-to-day workflows into one organised system. Instead of relying on spreadsheets and scattered conversations, your team gets a clearer way to manage every opportunity.</p>
+              <p>From custom CRM platforms to automated lead workflows and third-party integrations, we develop systems around how your business actually operates.</p>
+            </div>
+            <div class="svc__list">
+              <p class="svc__ltitle">Services include</p>
+              <ul>
+                <li>Custom CRM development</li>
+                <li>Lead management systems</li>
+                <li>Customer management portals</li>
+                <li>Sales pipeline development</li>
+                <li>Lead capture & tracking</li>
+                <li>Workflow automation</li>
+                <li>CRM integrations & APIs</li>
+                <li>Custom dashboards & reporting</li>
+              </ul>
+            </div>
+            <a class="btn btn--ink" href="services/crm-development-automation.html" data-pick="CRM Development & Automation">Explore CRM Development →</a>
+          </div></div>
+        </div>
+      </div>
       <div class="svc" id="svc-redesign">
         <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-redesign-p"><span>Website Redesign</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
         <div class="svc__panel" id="svc-redesign-p" role="region" aria-label="Website Redesign">
@@ -899,11 +1869,36 @@ body:has(dialog[open]) { overflow: hidden; }
                 <li>Modern visual design</li><li>Better UX</li><li>Mobile responsiveness</li><li>Clearer messaging</li><li>Stronger conversion paths</li><li>Faster performance</li><li>Better content hierarchy</li><li>Improved technical foundations</li>
               </ul>
             </div>
-            <a class="btn btn--ink" href="#contact" data-pick="Website redesign">Redesign Your Website →</a>
+            <a class="btn btn--ink" href="services/website-redesign.html" data-pick="Website redesign">Redesign Your Website →</a>
           </div></div>
         </div>
       </div>
-
+      <div class="svc" id="svc-seo">
+        <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-seo-p"><span>SEO Optimisation Services</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
+        <div class="svc__panel" id="svc-seo-p" role="region" aria-label="SEO Optimisation Services">
+          <div class="svc__clip"><div class="svc__body">
+            <div class="svc__text">
+              <p class="svc__lead">Better visibility for the searches that matter.</p>
+              <p>We optimise websites to make them easier for search engines to understand and easier for potential customers to discover. Our approach combines technical improvements, useful content and on-page optimisation rather than chasing shortcuts.</p>
+              <p>From improving existing websites to building an SEO foundation from the ground up, we focus on sustainable visibility and traffic that can contribute to real business growth.</p>
+            </div>
+            <div class="svc__list">
+              <p class="svc__ltitle">Services include</p>
+              <ul>
+                <li>Technical SEO optimisation</li>
+                <li>On-page SEO</li>
+                <li>Keyword research & strategy</li>
+                <li>Local SEO</li>
+                <li>SEO content optimisation</li>
+                <li>Website speed optimisation</li>
+                <li>Meta titles & descriptions</li>
+                <li>SEO audits & performance tracking</li>
+              </ul>
+            </div>
+            <a class="btn btn--ink" href="services/seo-optimisation.html" data-pick="SEO Optimisation">Explore SEO Services →</a>
+          </div></div>
+        </div>
+      </div>
       <div class="svc" id="svc-deploy">
         <h3><button class="svc__btn" type="button" aria-expanded="false" aria-controls="svc-deploy-p"><span>Deployment &amp; Optimization</span><span class="svc__icon" aria-hidden="true"></span></button></h3>
         <div class="svc__panel" id="svc-deploy-p" role="region" aria-label="Deployment and Optimization">
@@ -919,7 +1914,7 @@ body:has(dialog[open]) { overflow: hidden; }
                 <li>Testing</li><li>Hosting configuration</li><li>Deployment</li><li>Optimization</li><li>Website maintenance</li>
               </ul>
             </div>
-            <a class="btn btn--ink" href="#contact" data-pick="Deployment and optimization">Deploy Your Project →</a>
+            <a class="btn btn--ink" href="services/deployment-optimization.html" data-pick="Deployment and optimization">Deploy Your Project →</a>
           </div></div>
         </div>
       </div>
@@ -942,17 +1937,17 @@ body:has(dialog[open]) { overflow: hidden; }
       <h2 class="t-xl" id="work-title">Our Work</h2>
       <div>
         <p class="t-m">Ideas are easy. Execution is everything.</p>
-        <p style="margin-top:12px">We've worked across industries to create websites, digital products, e-commerce experiences and visual identities designed around real business objectives.</p>
+        <p style="margin-top:12px">We've worked across industries to create websites, digital products, e-commerce experiences, ad creatives and visual identities designed around real business objectives.</p>
       </div>
     </div>
 
     <h3 class="t-l" style="margin-bottom:32px">Selected projects</h3>
     <div class="work">
 
-      <article class="work__item">
+<article class="work__item" data-type="web" style="--o:1">
         <div class="browser">
           <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">eduvate</span></div>
-          <div class="browser__screen"><img src="assets/work/eduvate.png" alt="Eduvate education platform and LMS website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="browser__screen"><img src="assets/work/eduvate.webp" alt="Eduvate education platform and LMS website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
         </div>
         <div>
           <span class="work__kind">Education platform &amp; LMS</span>
@@ -963,10 +1958,10 @@ body:has(dialog[open]) { overflow: hidden; }
         <a class="btn btn--ink work__cta" data-project="eduvate" href="#work" aria-label="View Eduvate work (opens in a new tab)">View work</a>
       </article>
 
-      <article class="work__item">
+<article class="work__item" data-type="web" style="--o:3">
         <div class="browser">
           <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">osae-prints</span></div>
-          <div class="browser__screen"><img src="assets/work/osae.png" alt="OSAE Prints e-commerce website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="browser__screen"><img src="assets/work/osae.webp" alt="OSAE Prints e-commerce website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
         </div>
         <div>
           <span class="work__kind">E-commerce experience</span>
@@ -977,7 +1972,7 @@ body:has(dialog[open]) { overflow: hidden; }
         <a class="btn btn--ink work__cta" data-project="osae" href="#work" aria-label="View OSAE Prints work (opens in a new tab)">View work</a>
       </article>
 
-      <article class="work__item">
+<article class="work__item" data-type="web" style="--o:5">
         <div class="browser">
           <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">gradmit</span></div>
           <div class="browser__screen"><img src="assets/work/gradmit.png" alt="Gradmit education consultancy website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
@@ -991,10 +1986,73 @@ body:has(dialog[open]) { overflow: hidden; }
         <a class="btn btn--ink work__cta" data-project="gradmit" href="#work" aria-label="View Gradmit work (opens in a new tab)">View work</a>
       </article>
 
-      <article class="work__item">
+      <article class="work__item work__item--design" data-type="design" style="--o:2">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">meta ad creatives</span></div>
+          <div class="browser__screen"><img src="assets/Work/Burnforce/ANGLE 01 - everyones on something V1.jpg" alt="Burnforce Meta ad creative designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">Meta ad creatives</span>
+          <h3>Burnforce</h3>
+          <p class="prose">A set of Meta ad creatives designed for Burnforce's paid social campaigns.</p>
+          <ul class="tags"><li>Meta Ads</li><li>Ad Creatives</li><li>Social Media Design</li></ul>
+        </div>
+        <button class="btn btn--ink work__cta" type="button" data-gallery aria-haspopup="dialog" aria-label="View Burnforce work (opens a slideshow)">View work</button>
+        <!-- Slideshow images for Burnforce: add, remove or reorder the <img> lines below -->
+        <ul class="slides" hidden>
+            <li><img src="assets/Work/Burnforce/ANGLE 01 - everyones on something V3.jpg" alt="Burnforce Meta ad creative 1 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Burnforce/ANGLE 02 - nothing good after dinner V2.jpg" alt="Burnforce Meta ad creative 2 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Burnforce/ANGLE 03 - fat jail V1.jpg" alt="Burnforce Meta ad creative 3 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Burnforce/ANGLE 04 - no day off V1.jpg" alt="Burnforce Meta ad creative 4 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+        </ul>
+      </article>
+
+      <article class="work__item work__item--design" data-type="design" style="--o:4">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">meta ad creatives</span></div>
+          <div class="browser__screen"><img src="assets/Work/Clinton Dentist/Concept 1 — The Postponer V2.jpg" alt="Clinton Dentist Meta ad creative designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">Meta ad creatives</span>
+          <h3>Clinton Dentist</h3>
+          <p class="prose">Ad creatives designed to communicate Clinton Dentist's offer clearly across Facebook and Instagram.</p>
+          <ul class="tags"><li>Meta Ads</li><li>Static Ads</li><li>Campaign Design</li></ul>
+        </div>
+        <button class="btn btn--ink work__cta" type="button" data-gallery aria-haspopup="dialog" aria-label="View Clinton Dentist work (opens a slideshow)">View work</button>
+        <!-- Slideshow images for Clinton Dentist: add, remove or reorder the <img> lines below -->
+        <ul class="slides" hidden>
+            <li><img src="assets/Work/Clinton Dentist/Concept 1 — The Postponer V2.jpg" alt="Clinton Dentist Meta ad creative 1 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Clinton Dentist/Concept 2 — One Visit Crown V2.jpg" alt="Clinton Dentist Meta ad creative 2 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Clinton Dentist/Concept 3 — Already Paid For V2.jpg" alt="Clinton Dentist Meta ad creative 3 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Clinton Dentist/Concept 3 — Already Paid For V3.jpg" alt="Clinton Dentist Meta ad creative 4 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+        </ul>
+      </article>
+
+      <article class="work__item work__item--design" data-type="design" style="--o:6">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">meta ad creatives</span></div>
+          <div class="browser__screen"><img src="assets/Work/Notch/Brief 1 V1.jpg" alt="Notch Meta ad creative designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">Meta ad creatives</span>
+          <h3>Notch</h3>
+          <p class="prose">Meta ad designs created to give Notch's campaigns a consistent, recognisable look.</p>
+          <ul class="tags"><li>Meta Ads</li><li>Ad Creatives</li><li>Brand Design</li></ul>
+        </div>
+        <button class="btn btn--ink work__cta" type="button" data-gallery aria-haspopup="dialog" aria-label="View Notch work (opens a slideshow)">View work</button>
+        <!-- Slideshow images for Notch: add, remove or reorder the <img> lines below -->
+        <ul class="slides" hidden>
+            <li><img src="assets/Work/Notch/Brief 1 V1.jpg" alt="Notch Meta ad creative 1 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Notch/Brief 2 V1.jpg" alt="Notch Meta ad creative 2 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Notch/V1.jpg" alt="Notch Meta ad creative 3 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Notch/V2_.jpg" alt="Notch Meta ad creative 4 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+        </ul>
+      </article>
+
+<article class="work__item" data-type="web" style="--o:7">
         <div class="browser">
           <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">fizixcoach</span></div>
-          <div class="browser__screen"><img src="assets/work/fizixcoach.png" alt="FizixCoach education and coaching website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="browser__screen"><img src="assets/work/fizixcoach.webp" alt="FizixCoach education and coaching website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
         </div>
         <div>
           <span class="work__kind">Education &amp; coaching website</span>
@@ -1005,10 +2063,10 @@ body:has(dialog[open]) { overflow: hidden; }
         <a class="btn btn--ink work__cta" data-project="fizixcoach" href="#work" aria-label="View FizixCoach work (opens in a new tab)">View work</a>
       </article>
 
-      <article class="work__item">
+<article class="work__item" data-type="web" style="--o:9">
         <div class="browser">
           <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">vc-labtech</span></div>
-          <div class="browser__screen"><img src="assets/work/vc-labtech-corporate-website-design.svg" alt="VC Labtech corporate website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="browser__screen"><img src="assets/work/vc labtech.webp" alt="VC Labtech corporate website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
         </div>
         <div>
           <span class="work__kind">Corporate digital presence</span>
@@ -1019,10 +2077,10 @@ body:has(dialog[open]) { overflow: hidden; }
         <a class="btn btn--ink work__cta" data-project="vclabtech" href="#work" aria-label="View VC Labtech work (opens in a new tab)">View work</a>
       </article>
 
-      <article class="work__item">
+<article class="work__item" data-type="web" style="--o:11">
         <div class="browser">
           <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">navrang-steels</span></div>
-          <div class="browser__screen"><img src="assets/work/abstract.png" alt="Navrang Steels industrial website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
+          <div class="browser__screen"><img src="assets/work/abstract.webp" alt="Navrang Steels industrial website designed and developed by Design &amp; Deploy" width="800" height="500" loading="lazy" decoding="async"></div>
         </div>
         <div>
           <span class="work__kind">Industrial website</span>
@@ -1031,6 +2089,69 @@ body:has(dialog[open]) { overflow: hidden; }
           <ul class="tags"><li>Web Design</li><li>Development</li><li>Responsive Design</li></ul>
         </div>
         <a class="btn btn--ink work__cta" data-project="navrang" href="#work" aria-label="View Navrang Steels work (opens in a new tab)">View work</a>
+      </article>
+
+      <article class="work__item work__item--design" data-type="design" style="--o:8">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">meta ad creatives</span></div>
+          <div class="browser__screen"><img src="assets/Work/Olora/RD_Olora_BPO statics V1.jpg" alt="Olora Meta ad creative designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">Meta ad creatives</span>
+          <h3>Olora</h3>
+          <p class="prose">Promotional ad creatives designed to present Olora's offer clearly in the feed.</p>
+          <ul class="tags"><li>Meta Ads</li><li>Promotional Graphics</li><li>Ad Creatives</li></ul>
+        </div>
+        <button class="btn btn--ink work__cta" type="button" data-gallery aria-haspopup="dialog" aria-label="View Olora work (opens a slideshow)">View work</button>
+        <!-- Slideshow images for Olora: add, remove or reorder the <img> lines below -->
+        <ul class="slides" hidden>
+            <li><img src="assets/Work/Olora/RD_Olora_BPO statics V2.jpg" alt="Olora Meta ad creative 1 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Olora/RD_Olora_CottonVSOlora V1.jpg" alt="Olora Meta ad creative 2 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Olora/RD_Olora_Testimonial Statics V1.jpg" alt="Olora Meta ad creative 3 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Olora/V1.jpg" alt="Olora Meta ad creative 4 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+        </ul>
+      </article>
+
+      <article class="work__item work__item--design" data-type="design" style="--o:10">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">meta ad creatives</span></div>
+          <div class="browser__screen"><img src="assets/Work/StudioEra work/2.jpg" alt="StudioEra Meta ad creative designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">Social media creatives</span>
+          <h3>StudioEra</h3>
+          <p class="prose">Social and ad creatives that keep StudioEra's visual identity consistent across campaigns.</p>
+          <ul class="tags"><li>Meta Ads</li><li>Social Media Design</li><li>Brand Consistency</li></ul>
+        </div>
+        <button class="btn btn--ink work__cta" type="button" data-gallery aria-haspopup="dialog" aria-label="View StudioEra work (opens a slideshow)">View work</button>
+        <!-- Slideshow images for StudioEra: add, remove or reorder the <img> lines below -->
+        <ul class="slides" hidden>
+            <li><img src="assets/Work/StudioEra work/V1.jpg" alt="StudioEra Meta ad creative 1 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/StudioEra work/V3.jpg" alt="StudioEra Meta ad creative 2 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/StudioEra work/V6.jpg" alt="StudioEra Meta ad creative 3 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/StudioEra work/V4.jpg" alt="StudioEra Meta ad creative 4 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+        </ul>
+      </article>
+
+      <article class="work__item work__item--design" data-type="design" style="--o:12">
+        <div class="browser">
+          <div class="browser__bar"><span class="browser__dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="browser__url">meta ad creatives</span></div>
+          <div class="browser__screen"><img src="assets/Work/Pure peptides/S02 V1.jpg" alt="Pure peptides Meta ad creative designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></div>
+        </div>
+        <div>
+          <span class="work__kind">Meta ad creatives</span>
+          <h3>Pure peptides</h3>
+          <p class="prose">Clean, credible ad creatives designed for Pure peptides' Meta campaigns.</p>
+          <ul class="tags"><li>Meta Ads</li><li>Ad Creatives</li><li>Campaign Design</li></ul>
+        </div>
+        <button class="btn btn--ink work__cta" type="button" data-gallery aria-haspopup="dialog" aria-label="View Pure peptides work (opens a slideshow)">View work</button>
+        <!-- Slideshow images for Pure peptides: add, remove or reorder the <img> lines below -->
+        <ul class="slides" hidden>
+            <li><img src="assets/Work/Pure peptides/S03 V1.jpg" alt="Pure peptides Meta ad creative 1 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Pure peptides/S04 V1.jpg" alt="Pure peptides Meta ad creative 2 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Pure peptides/S06 V1.jpg" alt="Pure peptides Meta ad creative 3 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+            <li><img src="assets/Work/Pure peptides/S08 V1.jpg" alt="Pure peptides Meta ad creative 4 of 4, designed by Design &amp; Deploy" width="1080" height="1080" loading="lazy" decoding="async"></li>
+        </ul>
       </article>
 
     </div>
@@ -1192,16 +2313,41 @@ body:has(dialog[open]) { overflow: hidden; }
     <!-- Each .slot cycles through its own logos. Add more <img> tags to a slot to add more clients. -->
     <div class="rot" aria-hidden="true">
       <div class="slot">
-        <img class="is-active" src="assets/Brands/favicon.png" alt="Eduvate logo" width="270" height="100">
-        <img src="assets/Brands/gradmit.webp" alt="FizixCoach logo" width="320" height="100">
+        <img class="is-active" src="assets/Brands/favicon.png" loading="lazy"
+        decoding="async" alt="Eduvate logo" width="270" height="100">
+        <img src="assets/Brands/gradmit.webp" loading="lazy"
+        decoding="async" alt="FizixCoach logo" width="320" height="100">
+        <img src="assets/Brands/Canine Elite.png" loading="lazy"
+        decoding="async" alt="canine elite logo" width="320" height="100">
+        <img src="assets/Brands/Lyzr.png" loading="lazy"
+        decoding="async" alt="Lyzr logo" width="320" height="100">
+        <img src="assets/Brands/Nlogo.png" loading="lazy"
+        decoding="async" alt="Abstract logo" width="320" height="100">
+        
       </div>
       <div class="slot">
-        <img class="is-active" src="assets/Brands/logo (2).png" alt="OSAE Prints logo" width="345" height="100">
-        <img src="assets/Brands/logo (3).png" alt="VC Labtech logo" width="325" height="100">
+        <img class="is-active" src="assets/Brands/logo (2).png" loading="lazy"
+        decoding="async" alt="OSAE Prints logo" width="345" height="100">
+        <img src="assets/Brands/logo (3).png" loading="lazy"
+        decoding="async" alt="VC Labtech logo" width="325" height="100">
+        <img src="assets/Brands/Notch.png" loading="lazy"
+        decoding="async" alt="Notch logo" width="320" height="100">
+        <img src="assets/Brands/PureGenic copy.png" loading="lazy"
+        decoding="async" alt="Puregenic logo" width="320" height="100">
+        <img src="assets/Brands/Nlogo4.png" loading="lazy"
+        decoding="async" alt="Studenthut logo" width="320" height="100">
       </div>
       <div class="slot">
-        <img class="is-active" src="assets/Brands/logo-full.png" alt="Gradmit logo" width="265" height="100">
-        <img src="assets/Brands/logo_nobg.png" alt="Navrang Steels logo" width="380" height="100">
+        <img class="is-active" src="assets/Brands/logo-full.png" loading="lazy"
+        decoding="async" alt="Gradmit logo" width="265" height="100">
+        <img src="assets/Brands/logo_nobg.png" loading="lazy"
+        decoding="async" alt="Navrang Steels logo" width="380" height="100">
+        <img src="assets/Brands/StudioEra.png" loading="lazy"
+        decoding="async" alt="Studioera logo" width="320" height="100">
+        <img src="assets/Brands/Tyger Capital Reverse Logo (1).png" loading="lazy"
+        decoding="async" alt="Tyger Capital logo" width="320" height="100">
+        <img src="assets/Brands/Nlogo_header.png" loading="lazy"
+        decoding="async" alt="Nexoyra logo" width="320" height="100">
       </div>
     </div>
   </div>
@@ -1215,7 +2361,7 @@ body:has(dialog[open]) { overflow: hidden; }
     <p>Your next website shouldn't look like everyone else's. Tell us what you're building, where you're stuck or where you want to go. We'll figure out the rest.</p>
     <div class="cta__row">
       <a class="btn btn--yellow" href="#contact" data-popup>Start a Project</a>
-      <a class="cta__mail" data-mailto data-email href="#contact">hello@designanddeploy.in</a>
+      <a class="cta__mail" data-mailto data-email href="#contact">support@designandeploy.in</a>
     </div>
   </div>
 </section>
@@ -1241,10 +2387,76 @@ body:has(dialog[open]) { overflow: hidden; }
       </div>
 
       <dl class="details">
-        <div><dt>Email</dt><dd><a data-mailto data-email href="#contact">hello@designanddeploy.in</a></dd></div>
+        <div><dt>Email</dt><dd><a data-mailto data-email href="#contact">support@designandeploy.in</a></dd></div>
         <div><dt>Based in</dt><dd>Noida, India</dd></div>
         <div><dt>Working with</dt><dd>Clients across India and foreign</dd></div>
       </dl>
+
+      <!-- Mobile-only social links -->
+      <div class="contact__socials">
+        <div class="contact__social-head">
+          <span>Follow the studio</span>
+          <span>Elsewhere</span>
+        </div>
+
+        <div class="contact__social-grid">
+          <a href="https://www.instagram.com/designandeploy/" target="_blank" rel="noopener noreferrer">
+            <span class="contact__social-icon">
+              <img src="assets/social/instagram.svg" alt="" width="17" height="17">
+            </span>
+            <span>Instagram</span>
+          </a>
+
+          <a href="https://www.linkedin.com/company/YOUR_PAGE/" target="_blank" rel="noopener noreferrer">
+            <span class="contact__social-icon">
+              <img src="assets/social/linkedin.svg" alt="" width="17" height="17">
+            </span>
+            <span>LinkedIn</span>
+          </a>
+
+          <a href="https://www.facebook.com/YOUR_PAGE" target="_blank" rel="noopener noreferrer">
+            <span class="contact__social-icon">
+              <img src="assets/social/facebook.svg" alt="" width="17" height="17">
+            </span>
+            <span>Facebook</span>
+          </a>
+
+          <a href="https://www.behance.net/designdeploy" target="_blank" rel="noopener noreferrer">
+            <span class="contact__social-icon">
+              <img src="assets/social/behance.svg" alt="" width="17" height="17">
+            </span>
+            <span>Behance</span>
+          </a>
+
+          <a href="https://www.youtube.com/@DesignDeploy-l6r" target="_blank" rel="noopener noreferrer">
+            <span class="contact__social-icon">
+              <img src="assets/social/youtube.svg" alt="" width="17" height="17">
+            </span>
+            <span>YouTube</span>
+          </a>
+
+          <a href="https://x.com/Designandeploy1" target="_blank" rel="noopener noreferrer">
+            <span class="contact__social-icon">
+              <img src="assets/social/x.svg" alt="" width="17" height="17">
+            </span>
+            <span>X</span>
+          </a>
+
+          <a href="https://www.pinterest.com/dsgndply/" target="_blank" rel="noopener noreferrer">
+            <span class="contact__social-icon">
+              <img src="assets/social/pinterest.svg" alt="" width="17" height="17">
+            </span>
+            <span>Pinterest</span>
+          </a>
+
+          <a data-whatsapp href="#" target="_blank" rel="noopener noreferrer">
+            <span class="contact__social-icon">
+              <img src="assets/social/whatsapp.svg" alt="" width="17" height="17">
+            </span>
+            <span>WhatsApp</span>
+          </a>
+        </div>
+      </div>
     </div>
 
     <div class="split__b">
@@ -1260,10 +2472,14 @@ body:has(dialog[open]) { overflow: hidden; }
             <select id="f-service" name="service" required>
               <option value="" disabled selected>Choose a service</option>
               <option>Website design and development</option>
+              <option>Meta Ads Creative &amp; Design</option>
+              <option>Landing Page Design &amp; Development</option>
               <option>UI/UX design</option>
               <option>Branding and graphic design</option>
               <option>E-commerce development</option>
+              <option>CRM Development &amp; Automation</option>
               <option>Website redesign</option>
+              <option>SEO Optimisation</option>
               <option>Deployment and optimization</option>
               <option>Something else</option>
             </select>
@@ -1274,6 +2490,7 @@ body:has(dialog[open]) { overflow: hidden; }
           <div class="field"><label for="f-time">Timeline</label><input id="f-time" name="timeline" type="text" placeholder="When would you like to launch?"></div>
           <div class="field"><label for="f-budget">Budget</label><input id="f-budget" name="budget" type="text" placeholder="Helps us recommend the right approach"></div>
         </div>
+        <input type="hidden" name="source" value="contact">
         <div class="form__foot">
           <button class="btn btn--red" type="submit">Send Project Enquiry →</button>
           <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
@@ -1301,7 +2518,7 @@ body:has(dialog[open]) { overflow: hidden; }
 
     <div class="footer__grid">
       <div>
-        <a class="logo logo-chip" href="#top" aria-label="Design &amp; Deploy, back to top"><img src="assets/logo.png" alt="Design &amp; Deploy" width="190" height="36"></a>
+        <a class="logo_footer" href="#top" aria-label="Design &amp; Deploy, back to top"><img src="assets/White_logo_full.png" alt="Design &amp; Deploy" width="190" height="36"></a>
         <p class="footer__blurb">A digital design and development studio based in Noida, India, helping businesses across Delhi-NCR, India and foreign build stronger brands and better digital experiences.</p>
       </div>
       <div>
@@ -1329,11 +2546,17 @@ body:has(dialog[open]) { overflow: hidden; }
         <h3>Contact us</h3>
         <ul>
           <li>Noida, India</li>
-          <li><a data-mailto data-email href="#contact">hello@designanddeploy.in</a></li>
+          <li><a data-mailto data-email href="#contact">support@designandeploy.in</a></li>
         </ul>
       </div>
     </div>
-    <p class="footer__base">Copyright &copy; <span id="year">2026</span> Design &amp; Deploy. All rights reserved.</p>
+    <div class="footer__base">
+      <p>Copyright &copy; <span id="year">2026</span> Design &amp; Deploy. All rights reserved.</p>
+      <nav class="footer__legal" aria-label="Legal">
+        <a href="terms.html">Terms</a>
+        <a href="privacy.html">Privacy</a>
+      </nav>
+    </div>
   </div>
 </footer>
 
@@ -1367,16 +2590,21 @@ body:has(dialog[open]) { overflow: hidden; }
             <select id="p-service" name="service" required>
               <option value="" disabled selected>Choose a service</option>
               <option>Website design and development</option>
+              <option>Meta Ads Creative &amp; Design</option>
+              <option>Landing Page Design &amp; Development</option>
               <option>UI/UX design</option>
               <option>Branding and graphic design</option>
               <option>E-commerce development</option>
+              <option>CRM Development &amp; Automation</option>
               <option>Website redesign</option>
+              <option>SEO Optimisation</option>
               <option>Deployment and optimization</option>
               <option>Something else</option>
             </select>
           </div>
         </div>
         <div class="field"><label for="p-msg">Project details</label><textarea id="p-msg" name="message" required placeholder="What are you building? Where are you stuck?"></textarea></div>
+        <input type="hidden" name="source" value="popup">
         <div class="form__foot">
           <button class="btn btn--red" type="submit">Send Project Enquiry →</button>
           <p class="form__status" id="pop-status" role="status" aria-live="polite"></p>
@@ -1391,6 +2619,59 @@ body:has(dialog[open]) { overflow: hidden; }
   </button>
 </dialog>
 
+<!-- ======================= DESIGN WORK SLIDESHOW ======================= -->
+<dialog class="gal" id="gallery" aria-labelledby="gal-title" aria-roledescription="slideshow">
+  <div class="gal__card" tabindex="-1" autofocus>
+    <div class="gal__stage">
+      <div class="gal__track" id="gal-track"></div>
+      <button class="gal__arrow gal__arrow--prev" type="button" aria-label="Previous slide" data-gal-prev>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="square" aria-hidden="true"><path d="M15 4L7 12l8 8"/></svg>
+      </button>
+      <button class="gal__arrow gal__arrow--next" type="button" aria-label="Next slide" data-gal-next>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.75" stroke-linecap="square" aria-hidden="true"><path d="M9 4l8 8-8 8"/></svg>
+      </button>
+    </div>
+    <div class="gal__bar tone-light">
+      <div class="gal__meta">
+        <span class="gal__kind" id="gal-kind"></span>
+        <h2 id="gal-title"></h2>
+        <ul class="tags" id="gal-tags"></ul>
+      </div>
+      <div class="gal__nav">
+        <p class="gal__count" id="gal-count" aria-live="polite"></p>
+        <div class="gal__dots" id="gal-dots"></div>
+        <p class="gal__hint">Swipe to browse</p>
+      </div>
+    </div>
+  </div>
+
+  <button class="pop__close" type="button" aria-label="Close slideshow" data-gal-close>
+    <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" aria-hidden="true"><path d="M2 2l14 14M16 2L2 16"/></svg>
+  </button>
+</dialog>
+<aside class="dock" id="dock" aria-label="Social media">
+  <button class="dock__toggle" type="button" aria-expanded="false" aria-controls="dock-panel">
+    <span class="dock__icon" aria-hidden="true"></span>
+    <span class="dock__label">Follow us</span>
+  </button>
+  <div class="dock__panel" id="dock-panel">
+    <div class="dock__inner">
+      <p class="dock__title" style="--i:0">Follow Design &amp; Deploy</p>
+      <ul class="dock__list">
+        <!-- REPLACE each address with your real profile link -->
+        <li style="--i:1"><a href="https://www.instagram.com/designandeploy/" target="_blank" rel="noopener noreferrer"><span class="dock__ico"><img src="assets/social/instagram.svg" alt="" width="17" height="17"></span>Instagram</a></li>
+        <li style="--i:2"><a href="https://www.linkedin.com/company/YOUR_PAGE/" target="_blank" rel="noopener noreferrer"><span class="dock__ico"><img src="assets/social/linkedin.svg" alt="" width="17" height="17"></span>LinkedIn</a></li>
+        <li style="--i:3"><a href="https://www.facebook.com/YOUR_PAGE" target="_blank" rel="noopener noreferrer"><span class="dock__ico"><img src="assets/social/facebook.svg" alt="" width="17" height="17"></span>Facebook</a></li>
+        <li style="--i:4"><a href="https://www.behance.net/designdeploy" target="_blank" rel="noopener noreferrer"><span class="dock__ico"><img src="assets/social/behance.svg" alt="" width="17" height="17"></span>Behance</a></li>
+        <li style="--i:5"><a href="https://www.youtube.com/@DesignDeploy-l6r" target="_blank" rel="noopener noreferrer"><span class="dock__ico"><img src="assets/social/youtube.svg" alt="" width="17" height="17"></span>YouTube</a></li>
+        <li style="--i:6"><a href="https://x.com/Designandeploy1" target="_blank" rel="noopener noreferrer"><span class="dock__ico"><img src="assets/social/x.svg" alt="" width="17" height="17"></span>X</a></li>
+        <li style="--i:7"><a href="https://www.pinterest.com/dsgndply/" target="_blank" rel="noopener noreferrer"><span class="dock__ico"><img src="assets/social/pinterest.svg" alt="" width="17" height="17"></span>Pinterest</a></li>
+        <li style="--i:8"><a data-whatsapp href="#" target="_blank" rel="noopener noreferrer"><span class="dock__ico"><img src="assets/social/whatsapp.svg" alt="" width="17" height="17"></span>WhatsApp</a></li>
+      </ul>
+      <p class="dock__foot" style="--i:9">Or write to <a data-mailto data-email href="#contact">support@designandeploy.in</a></p>
+    </div>
+  </div>
+</aside>
 <!-- ======================= FLOATING WHATSAPP ======================= -->
 <a class="wa" data-whatsapp href="#" aria-label="Chat with Design &amp; Deploy on WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
@@ -1403,17 +2684,25 @@ body:has(dialog[open]) { overflow: hidden; }
   /* ---------------------------------------------------------------
      CONFIG
      --------------------------------------------------------------- */
+  const IS_LOCAL = ['localhost', '127.0.0.1', '[::1]', ''].includes(location.hostname);   // '' = opened as a file
+
   const CONFIG = {
-    email: 'hello@designanddeploy.in',
-    whatsapp: '917073764730', // REPLACE: country code + number, digits only (e.g. 919876543210)
-    formEndpoint: '',         // optional: POST JSON here instead of opening the email app
+    email: 'support@designandeploy.in',
+    whatsapp: '917289974410', // REPLACE: country code + number, digits only (e.g. 919876543210)
+    // Form handler addresses, tried in order until one answers properly.
+    //  - Live site (Hostinger): send-enquiry.php, which sits next to index.html.
+    //  - Local testing: the Node server first, then the PHP handler if you serve the folder with PHP.
+    // If none answers, the form opens a ready-written email instead, so an enquiry is never lost.
+    formEndpoints: IS_LOCAL
+      ? ['http://localhost:3000/api/enquiry', 'send-enquiry.php']
+      : ['send-enquiry.php'],
     // REPLACE: live site URL for each "View work" button
     projectLinks: {
       eduvate: 'https://eduvate.in/',
       osae: 'https://osaeprints.com/',
       gradmit: 'https://gradmit.co/',
       fizixcoach: 'https://fizixcoach.in/',
-      vclabtech: '',
+      vclabtech: 'https://vclabtech.com/',
       navrang: 'https://akshat899.github.io/Abstract/'
     }
   };
@@ -1487,52 +2776,37 @@ body:has(dialog[open]) { overflow: hidden; }
     });
   }, { rootMargin: '-45% 0px -50% 0px' });
   ['top', 'work', 'about', 'contact'].forEach(id => { const s = document.getElementById(id); if (s) spy.observe(s); });
+/* ---------------------------------------------------------------
+   Services accordion
+   --------------------------------------------------------------- */
+const serviceCards = $$('.svc');
 
-  /* ---------------------------------------------------------------
-     Services accordion
-     --------------------------------------------------------------- */
-  const svcs = $$('.svc');
-  function setSvc(item, open) {
-    item.classList.toggle('is-open', open);
-    $('.svc__btn', item).setAttribute('aria-expanded', String(open));
-    $('.svc__panel', item).inert = !open;
-  }
-  svcs.forEach(item => {
-    $('.svc__btn', item).addEventListener('click', () => {
-      const wasOpen = item.classList.contains('is-open');
-      svcs.forEach(s => setSvc(s, false));
-      setSvc(item, !wasOpen);
+function setServiceCard(card, open) {
+  const button = $('.svc__btn', card);
+  if (!button) return;
+
+  card.classList.toggle('is-open', open);
+  button.setAttribute('aria-expanded', String(open));
+}
+
+serviceCards.forEach(card => {
+  const button = $('.svc__btn', card);
+  if (!button) return;
+
+  button.addEventListener('click', () => {
+    const isOpen = card.classList.contains('is-open');
+
+    // Close all other service cards
+    serviceCards.forEach(other => {
+      if (other !== card) {
+        setServiceCard(other, false);
+      }     
     });
+
+    // Toggle the clicked card
+    setServiceCard(card, !isOpen);
   });
-  svcs.forEach((s, i) => setSvc(s, i === 0));
-
-  // Jump straight to one service: open it, collapse the rest instantly (so nothing shifts), then scroll to it
-  function jumpToService(key) {
-    const target = document.getElementById('svc-' + key);
-    if (!target) return;
-    svcs.forEach(s => { if (s !== target) { s.classList.add('is-instant'); setSvc(s, false); } });
-    setSvc(target, true);
-    void target.offsetHeight; // apply the new layout before measuring the scroll position
-    target.scrollIntoView({ behavior: reduceMotion.matches ? 'auto' : 'smooth', block: 'start' });
-    setTimeout(() => svcs.forEach(s => s.classList.remove('is-instant')), 80);
-  }
-  $$('[data-service]').forEach(a => a.addEventListener('click', e => {
-    e.preventDefault();
-    jumpToService(a.dataset.service);
-    setMenu(false);
-    const li = a.closest('.has-menu');
-    if (li) { li.classList.add('is-suppressed'); li.addEventListener('mouseleave', () => li.classList.remove('is-suppressed'), { once: true }); }
-  }));
-  const hashKey = (location.hash.match(/^#svc-([a-z]+)$/) || [])[1];
-  if (hashKey) window.addEventListener('load', () => jumpToService(hashKey), { once: true });
-
-  // Service buttons preselect the matching option in the contact form
-  $$('[data-pick]').forEach(a => a.addEventListener('click', () => {
-    const sel = $('#f-service');
-    const opt = [...sel.options].find(o => o.textContent.trim() === a.dataset.pick);
-    if (opt) sel.value = opt.value || opt.textContent;
-  }));
-
+});
   /* ---------------------------------------------------------------
      WebGL shader canvases
      --------------------------------------------------------------- */
@@ -1751,33 +3025,59 @@ body:has(dialog[open]) { overflow: hidden; }
   /* ---------------------------------------------------------------
      Enquiry forms (contact section + pop-up)
      --------------------------------------------------------------- */
+  // POST the form to one address. Never throws: it reports what happened.
+  async function postEnquiry(url, data) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), 20000);
+    try {
+      const res = await fetch(url, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data), cache: 'no-store', signal: ctrl.signal });
+      const body = await res.json().catch(() => null);
+      const sent = res.ok && !!body && body.ok === true;
+      // 400 (a field is wrong) and 429 (too many tries) are real answers from a working server: show them as they are
+      const final = !sent && !!body && typeof body.message === 'string' && (res.status === 400 || res.status === 429);
+      return { url, status: res.status, sent, final, message: final ? body.message : '' };
+    } catch (err) {
+      return { url, status: 0, sent: false, final: false, message: '', error: String(err) };
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+
   async function sendEnquiry(form, status) {
     const d = Object.fromEntries(new FormData(form));
-    if (CONFIG.formEndpoint) {
-      try {
-        const res = await fetch(CONFIG.formEndpoint, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(d) });
-        if (!res.ok) throw new Error(res.status);
-        status.textContent = 'Enquiry sent. We will be in touch soon.';
-        form.reset();
-        return true;
-      } catch {
-        status.textContent = 'Could not send the enquiry. Email us at ' + CONFIG.email + ' instead.';
-        return false;
+    const btn = form.querySelector('[type="submit"]');
+    btn.disabled = true;
+    status.textContent = 'Sending…';
+    try {
+      const attempts = [];
+      for (const address of CONFIG.formEndpoints) {
+        const r = await postEnquiry(new URL(address, document.baseURI).href, d);
+        attempts.push(r);
+        if (r.sent) {
+          status.textContent = 'Enquiry sent. We will be in touch soon.';
+          form.reset();
+          return true;
+        }
+        if (r.final) { status.textContent = r.message; return false; }
       }
+      // Nothing answered properly. The details of each try are in the browser console (F12) to help with debugging.
+      console.warn('[enquiry] could not send through any form handler', attempts);
+      const subject = encodeURIComponent('New project enquiry: ' + (d.service || 'General'));
+      const body = encodeURIComponent(
+        'Name: ' + d.name +
+        '\nEmail: ' + d.email +
+        '\nCompany / Brand: ' + (d.company || '-') +
+        '\nService: ' + d.service +
+        '\nTimeline: ' + (d.timeline || '-') +
+        '\nBudget: ' + (d.budget || '-') +
+        '\n\n' + d.message
+      );
+      status.textContent = 'We couldn’t send this automatically, so your email app is opening with your message ready. If nothing opens, write to ' + CONFIG.email + '.';
+      window.location.href = 'mailto:' + CONFIG.email + '?subject=' + subject + '&body=' + body;
+      return false;
+    } finally {
+      btn.disabled = false;
     }
-    const subject = encodeURIComponent('New project enquiry: ' + (d.service || 'General'));
-    const body = encodeURIComponent(
-      'Name: ' + d.name +
-      '\nEmail: ' + d.email +
-      '\nCompany / Brand: ' + (d.company || '-') +
-      '\nService: ' + d.service +
-      '\nTimeline: ' + (d.timeline || '-') +
-      '\nBudget: ' + (d.budget || '-') +
-      '\n\n' + d.message
-    );
-    status.textContent = 'Opening your email app. If nothing opens, write to ' + CONFIG.email + '.';
-    window.location.href = 'mailto:' + CONFIG.email + '?subject=' + subject + '&body=' + body;
-    return true;
   }
   $('#contact-form').addEventListener('submit', e => { e.preventDefault(); sendEnquiry(e.target, $('#form-status')); });
 
@@ -1823,13 +3123,574 @@ body:has(dialog[open]) { overflow: hidden; }
     if (ok) setTimeout(closePop, 2200);
   });
 
-  const autoOpen = () => setTimeout(() => {
-    if (document.querySelector('dialog[open]')) return;
-    const a = document.activeElement;
-    if (a && a.closest && a.closest('#contact-form')) return;   // don't interrupt someone mid-form
-    openPop();
-  }, 2500);
-  if (document.readyState === 'complete') autoOpen(); else window.addEventListener('load', autoOpen, { once: true });
+  /* ---------------------------------------------------------------
+     Design work slideshow
+     Opens from every [data-gallery] button. Arrows on desktop, swipe on touch screens,
+     left/right keys on a keyboard. Closes with the X button, Escape, or a click on the backdrop.
+     --------------------------------------------------------------- */
+  const gal = $('#gallery');
+  const galStage = $('.gal__stage', gal);
+  const galTrack = $('#gal-track');
+  const galDots = $('#gal-dots');
+  const galPrev = $('[data-gal-prev]', gal);
+  const galNext = $('[data-gal-next]', gal);
+  const pad = n => String(n).padStart(2, '0');
+  let galIndex = 0, galCount = 0, galDrag = null, galIgnoreClick = false;
+
+  function galGo(i) {
+    if (!galCount) return;
+    galIndex = Math.max(0, Math.min(i, galCount - 1));
+    galTrack.style.transform = 'translate3d(' + (-galIndex * 100) + '%,0,0)';
+    $$('.gal__slide', galTrack).forEach((slide, k) => { slide.setAttribute('aria-hidden', String(k !== galIndex)); slide.inert = k !== galIndex; });
+    $$('.gal__dot', galDots).forEach((dot, k) => { if (k === galIndex) dot.setAttribute('aria-current', 'true'); else dot.removeAttribute('aria-current'); });
+    $('#gal-count').textContent = pad(galIndex + 1) + ' / ' + pad(galCount);
+    galPrev.disabled = galIndex === 0;
+    galNext.disabled = galIndex === galCount - 1;
+  }
+
+  function openGallery(card) {
+    if (gal.open || typeof gal.showModal !== 'function') return;
+    const slides = $$('.slides img', card).map(img => ({ src: img.getAttribute('src'), alt: img.alt }));
+    if (!slides.length) return;
+    galCount = slides.length;
+    $('#gal-title').textContent = $('h3', card).textContent;
+    $('#gal-kind').textContent = $('.work__kind', card).textContent;
+    $('#gal-tags').replaceChildren(...$$('.tags li', card).map(li => { const t = document.createElement('li'); t.textContent = li.textContent; return t; }));
+    galTrack.replaceChildren(...slides.map((s, k) => {
+      const slide = document.createElement('div');
+      slide.className = 'gal__slide';
+      slide.setAttribute('role', 'group');
+      slide.setAttribute('aria-roledescription', 'slide');
+      slide.setAttribute('aria-label', (k + 1) + ' of ' + slides.length);
+      const img = document.createElement('img');
+      img.src = s.src; img.alt = s.alt; img.decoding = 'async'; img.draggable = false;
+      slide.append(img);
+      return slide;
+    }));
+    galDots.replaceChildren(...slides.map((s, k) => {
+      const dot = document.createElement('button');
+      dot.type = 'button'; dot.className = 'gal__dot'; dot.setAttribute('aria-label', 'Go to slide ' + (k + 1));
+      dot.addEventListener('click', () => galGo(k));
+      return dot;
+    }));
+    gal.classList.toggle('is-single', slides.length < 2);
+    galTrack.classList.add('is-dragging');            // no sliding animation for the first position
+    galGo(0);
+    void galTrack.offsetWidth;
+    galTrack.classList.remove('is-dragging');
+    gal.showModal();
+  }
+  function closeGal() {
+    if (!gal.open || gal.classList.contains('is-closing')) return;
+    if (reduceMotion.matches) { gal.close(); return; }
+    gal.classList.add('is-closing');
+    setTimeout(() => { gal.classList.remove('is-closing'); gal.close(); }, 200);
+  }
+
+  $$('[data-gallery]').forEach(btn => btn.addEventListener('click', () => openGallery(btn.closest('.work__item'))));
+  $$('[data-gal-close]').forEach(b => b.addEventListener('click', closeGal));
+  galPrev.addEventListener('click', () => galGo(galIndex - 1));
+  galNext.addEventListener('click', () => galGo(galIndex + 1));
+  gal.addEventListener('cancel', e => { e.preventDefault(); closeGal(); });                      // Escape key
+  gal.addEventListener('click', e => { if (e.target === gal && !galIgnoreClick) closeGal(); });  // backdrop click
+  gal.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') { e.preventDefault(); galGo(galIndex + 1); }
+    else if (e.key === 'ArrowLeft') { e.preventDefault(); galGo(galIndex - 1); }
+  });
+
+  // Swipe (touch) and drag (mouse): the slide follows the finger, then snaps to the next or previous one
+  galStage.addEventListener('pointerdown', e => {
+    if (galCount < 2 || (e.pointerType === 'mouse' && e.button !== 0) || e.target.closest('button')) return;
+    galDrag = { id: e.pointerId, x: e.clientX, dx: 0, moved: false, w: galStage.clientWidth || 1 };
+    if (galStage.setPointerCapture) { try { galStage.setPointerCapture(e.pointerId); } catch (err) { /* ignore */ } }
+  });
+  galStage.addEventListener('pointermove', e => {
+    if (!galDrag || e.pointerId !== galDrag.id) return;
+    galDrag.dx = e.clientX - galDrag.x;
+    if (!galDrag.moved) {
+      if (Math.abs(galDrag.dx) < 6) return;
+      galDrag.moved = true;
+      galTrack.classList.add('is-dragging'); galStage.classList.add('is-dragging');
+    }
+    let dx = galDrag.dx;
+    if ((galIndex === 0 && dx > 0) || (galIndex === galCount - 1 && dx < 0)) dx *= 0.35;       // resist at the first and last slide
+    galTrack.style.transform = 'translate3d(calc(' + (-galIndex * 100) + '% + ' + dx + 'px),0,0)';
+  });
+  const galEndDrag = e => {
+    if (!galDrag || e.pointerId !== galDrag.id) return;
+    const { dx, moved, w } = galDrag;
+    galDrag = null;
+    galTrack.classList.remove('is-dragging'); galStage.classList.remove('is-dragging');
+    if (moved) { galIgnoreClick = true; setTimeout(() => { galIgnoreClick = false; }, 80); }
+    const threshold = Math.min(90, Math.max(30, w * 0.15));
+    if (moved && dx <= -threshold) galGo(galIndex + 1);
+    else if (moved && dx >= threshold) galGo(galIndex - 1);
+    else galGo(galIndex);
+  };
+  galStage.addEventListener('pointerup', galEndDrag);
+  galStage.addEventListener('pointercancel', galEndDrag);
+
+  const autoOpen = () => {
+    if (window.matchMedia('(max-width: 760px)').matches) return;
+
+    setTimeout(() => {
+        if (document.querySelector('dialog[open]')) return;
+
+        const a = document.activeElement;
+        if (a && a.closest && a.closest('#contact-form')) return;
+
+        openPop();
+    }, 5000);
+  };
+
+  if (document.readyState === 'complete') {
+      autoOpen();
+  } else {
+      window.addEventListener('load', autoOpen, { once: true });
+  }
+    /* ---------------------------------------------------------------
+     Social side panel: expands from the edge tab.
+     Closes with the tab, the Escape key, or a click anywhere else.
+     --------------------------------------------------------------- */
+  const dock = $('#dock');
+  const dockBtn = $('.dock__toggle', dock);
+  const dockPanel = $('.dock__panel', dock);
+  const dockLabel = $('.dock__label', dock);
+  dockPanel.inert = true;
+  function setDock(open) {
+    dock.classList.toggle('is-open', open);
+    dockBtn.setAttribute('aria-expanded', String(open));
+    dockPanel.inert = !open;
+    dockLabel.textContent = open ? 'Close' : 'Follow us';
+  }
+  dockBtn.addEventListener('click', () => setDock(!dock.classList.contains('is-open')));
+  document.addEventListener('pointerdown', e => { if (dock.classList.contains('is-open') && !dock.contains(e.target)) setDock(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && dock.classList.contains('is-open')) { setDock(false); dockBtn.focus(); } });
+})();
+</script>
+<script>
+(() => {
+  "use strict";
+
+  const root = document.querySelector(".dd-bundle");
+
+  if (!root || root.dataset.initialized) return;
+
+  root.dataset.initialized = "true";
+
+  const grid = root.querySelector("#dd-bundle-grid");
+  const filters = [...root.querySelectorAll("[data-filter]")];
+
+  /*
+    PRICING CONFIGURATION
+
+    These are proposed starting prices.
+    Edit prices and inclusions here.
+  */
+
+  const bundles = [
+
+    {
+      number: "01",
+      name: "Brand Foundation",
+      category: ["brand"],
+      tag: "Identity essentials",
+      price: 14999,
+      service: "Branding and graphic design",
+      description:
+        "Give your business a recognizable identity and a professional digital starting point.",
+      features: [
+        "Custom logo design",
+        "Colour and typography system",
+        "Mini brand guidelines",
+        "5 social media templates",
+        "Single-page brand website",
+        "Responsive development"
+      ]
+    },
+
+    {
+      number: "02",
+      name: "Business Launch",
+      category: ["brand", "web"],
+      tag: "Best for startups",
+      price: 29999,
+      service: "Website design and development",
+      description:
+        "Everything a growing business needs to establish a credible online presence.",
+      features: [
+        "Logo and brand refinement",
+        "Mini visual identity kit",
+        "Up to 5 website pages",
+        "Responsive website development",
+        "Contact and enquiry form",
+        "Basic on-page SEO setup"
+      ]
+    },
+
+    {
+      number: "03",
+      name: "Lead Generation Engine",
+      category: ["web", "growth"],
+      tag: "Conversion focused",
+      price: 24999,
+      service: "Landing Page Design & Development",
+      description:
+        "A campaign-ready digital experience designed to turn visitors into enquiries.",
+      features: [
+        "Custom landing page UI/UX",
+        "Conversion-focused copy structure",
+        "Responsive development",
+        "5 Meta ad creatives",
+        "Lead capture form",
+        "Analytics integration readiness"
+      ]
+    },
+
+    {
+      number: "04",
+      name: "E-Commerce Launch",
+      category: ["brand", "web"],
+      tag: "Sell online",
+      price: 59999,
+      service: "E-commerce development",
+      description:
+        "Build a complete shopping experience with a consistent visual identity.",
+      features: [
+        "Brand visual refinement",
+        "Custom storefront design",
+        "WooCommerce integration",
+        "Up to 10 initial products",
+        "Cart and checkout setup",
+        "Payment gateway integration"
+      ]
+    },
+
+    {
+      number: "05",
+      name: "Education & Coaching Pro",
+      category: ["brand", "web", "growth"],
+      tag: "Industry solution",
+      price: 44999,
+      service: "Website design and development",
+      description:
+        "A professional digital presence for educators, institutes and coaching brands.",
+      features: [
+        "Education-focused brand identity",
+        "Up to 5 website pages",
+        "Courses and programmes layout",
+        "Lead generation integration",
+        "8 social media templates",
+        "Responsive development"
+      ]
+    },
+
+    {
+      number: "06",
+      name: "Local Business Growth",
+      category: ["brand", "web", "growth"],
+      tag: "Business essentials",
+      price: 34999,
+      service: "Website design and development",
+      description:
+        "Help local businesses look professional, get discovered and receive more enquiries.",
+      features: [
+        "Logo and brand refresh",
+        "Up to 5 website pages",
+        "Services and location sections",
+        "6 promotional creatives",
+        "WhatsApp enquiry integration",
+        "Local SEO foundation"
+      ]
+    },
+
+    {
+      number: "07",
+      name: "Personal Brand Studio",
+      category: ["brand", "web"],
+      tag: "For professionals",
+      price: 24999,
+      service: "Website design and development",
+      description:
+        "Build a distinct personal identity and a portfolio that communicates your expertise.",
+      features: [
+        "Personal logo and identity",
+        "Colour and typography system",
+        "Portfolio website up to 4 pages",
+        "Responsive development",
+        "5 social media templates",
+        "Contact integration"
+      ]
+    },
+
+    {
+      number: "08",
+      name: "Website Revamp",
+      category: ["brand", "web"],
+      tag: "Fresh start",
+      price: 29999,
+      service: "Website redesign",
+      description:
+        "Give your existing website a stronger visual language and a better user experience.",
+      features: [
+        "Existing website audit",
+        "Updated UI/UX design",
+        "Up to 5 redesigned pages",
+        "Responsive development",
+        "Visual identity refinement",
+        "Performance optimisation basics"
+      ]
+    },
+
+    {
+      number: "09",
+      name: "Campaign Accelerator",
+      category: ["brand", "web", "growth"],
+      tag: "Marketing bundle",
+      price: 19999,
+      service: "Meta Ads Creative & Design",
+      description:
+        "Bring your advertising creatives and campaign landing experience under one roof.",
+      features: [
+        "Campaign visual direction",
+        "10 Meta ad creatives",
+        "Custom campaign landing page",
+        "Responsive development",
+        "Lead capture integration",
+        "Campaign tracking readiness"
+      ]
+    },
+
+    {
+      number: "10",
+      name: "Complete Brand-to-Digital",
+      category: ["brand", "web", "growth"],
+      tag: "Complete solution",
+      price: 74999,
+      service: "Website design and development",
+      featured: true,
+      description:
+        "The complete package for businesses ready to build a strong brand and digital ecosystem.",
+      features: [
+        "Complete brand identity system",
+        "Logo and brand guidelines",
+        "Up to 8 custom website pages",
+        "CMS integration",
+        "10 marketing creatives",
+        "SEO foundation and deployment"
+      ]
+    }
+
+  ];
+
+
+  /* ---------- RENDER CARDS ---------- */
+
+  const formatPrice = price =>
+    "₹" + price.toLocaleString("en-IN");
+
+  function renderCards(category = "all") {
+
+    grid.innerHTML = "";
+
+    const visible = bundles.filter(bundle =>
+      category === "all" ||
+      bundle.category.includes(category)
+    );
+
+    visible.forEach(bundle => {
+
+      const card = document.createElement("article");
+
+      card.className =
+        "dd-bundle__card" +
+        (bundle.featured ? " is-featured" : "");
+
+      const number = document.createElement("span");
+      number.className = "dd-bundle__number";
+      number.textContent = "BUNDLE / " + bundle.number;
+
+      const tag = document.createElement("span");
+      tag.className = "dd-bundle__tag";
+      tag.textContent = bundle.tag;
+
+      const top = document.createElement("div");
+      top.className = "dd-bundle__card-top";
+      top.append(number, tag);
+
+      const title = document.createElement("h3");
+      title.className = "dd-bundle__title";
+      title.textContent = bundle.name;
+
+      const description = document.createElement("p");
+      description.className = "dd-bundle__description";
+      description.textContent = bundle.description;
+
+      const priceArea = document.createElement("div");
+      priceArea.className = "dd-bundle__price-area";
+
+      const priceLabel = document.createElement("span");
+      priceLabel.className = "dd-bundle__price-label";
+      priceLabel.textContent = "Starting from";
+
+      const price = document.createElement("p");
+      price.className = "dd-bundle__price";
+      price.textContent = formatPrice(bundle.price);
+
+      priceArea.append(priceLabel, price);
+
+      const includes = document.createElement("p");
+      includes.className = "dd-bundle__includes";
+      includes.textContent = "What's included";
+
+      const list = document.createElement("ul");
+      list.className = "dd-bundle__list";
+
+      bundle.features.forEach(feature => {
+        const li = document.createElement("li");
+        li.textContent = feature;
+        list.appendChild(li);
+      });
+
+      const book = document.createElement("button");
+      book.type = "button";
+      book.className = "dd-bundle__book";
+
+      const bookText = document.createElement("span");
+      bookText.textContent = "Book this bundle";
+
+      const arrow = document.createElement("span");
+      arrow.className = "dd-bundle__arrow";
+      arrow.textContent = "↗";
+      arrow.setAttribute("aria-hidden", "true");
+
+      book.append(bookText, arrow);
+
+      book.addEventListener("click", () => {
+        bookBundle(bundle);
+      });
+
+      card.append(
+        top,
+        title,
+        description,
+        priceArea,
+        includes,
+        list,
+        book
+      );
+
+      grid.appendChild(card);
+    });
+
+  }
+
+
+  /* ---------- FILTER FUNCTIONALITY ---------- */
+
+  filters.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+      filters.forEach(filter => {
+        const active = filter === button;
+
+        filter.classList.toggle("is-active", active);
+        filter.setAttribute("aria-pressed", String(active));
+      });
+
+      renderCards(button.dataset.filter);
+
+    });
+
+  });
+
+
+  /* ---------- BOOKING INTEGRATION ---------- */
+
+  function bookBundle(bundle) {
+
+    const popup = document.getElementById("start-pop");
+
+    const service = document.getElementById("p-service");
+    const message = document.getElementById("p-msg");
+    const status = document.getElementById("pop-status");
+
+    const details = [
+      "SERVICE BUNDLE: " + bundle.name,
+      "BUNDLE NUMBER: " + bundle.number,
+      "STARTING PRICE: " + formatPrice(bundle.price),
+      "",
+      "INCLUDED SERVICES:",
+      ...bundle.features.map(item => "- " + item),
+      "",
+      "Please contact me to discuss the scope, timeline and final quotation."
+    ].join("\n");
+
+    /*
+      Reuse the existing website project enquiry dialog.
+      Its existing submission handler handles the email.
+    */
+
+    if (popup && service && message &&
+        typeof popup.showModal === "function") {
+
+      service.value = bundle.service;
+
+      message.value = details;
+
+      // Identify this enquiry in your backend.
+      const source = popup.querySelector('[name="source"]');
+
+      if (source) {
+        source.value = "service-bundle-" + bundle.number;
+      }
+
+      if (status) {
+        status.textContent = "";
+      }
+
+      if (!popup.open) {
+        popup.showModal();
+      }
+
+      // Bring the booking form into focus.
+      setTimeout(() => {
+        const name = document.getElementById("p-name");
+
+        if (name) name.focus();
+      }, 100);
+
+      return;
+    }
+
+    /*
+      Standalone sandbox fallback.
+      If the existing popup is absent, open a prefilled
+      email instead of pretending a booking was submitted.
+    */
+
+    const subject = encodeURIComponent(
+      "Service Bundle Enquiry - " + bundle.name
+    );
+
+    const body = encodeURIComponent(
+      "Hello Design & Deploy,\n\n" +
+      details +
+      "\n\nName:\nEmail:\nPhone:\nCompany:"
+    );
+
+    window.location.href =
+      "mailto:support@designandeploy.in?subject=" +
+      subject + "&body=" + body;
+
+  }
+
+
+  /* ---------- INITIALISE ---------- */
+
+  renderCards();
+
 })();
 </script>
 </body>
